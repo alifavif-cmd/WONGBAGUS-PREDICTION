@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-05-14T11:54:40.606Z",
-  "ok": 6,
+  "updatedAt": "2026-05-14T17:00:42.731Z",
+  "ok": 10,
   "total": 10,
   "pasaran": [
     {
@@ -9,15 +9,15 @@
       "status": "ok",
       "total": 30,
       "lastResult": "9876",
-      "updatedAt": "2026-05-14T11:54:28.280Z"
+      "updatedAt": "2026-05-14T17:00:28.625Z"
     },
     {
       "key": "hkg",
       "nama": "Hongkong Pools",
       "status": "ok",
       "total": 30,
-      "lastResult": "9498",
-      "updatedAt": "2026-05-14T11:54:30.067Z"
+      "lastResult": "8943",
+      "updatedAt": "2026-05-14T17:00:30.389Z"
     },
     {
       "key": "syd",
@@ -25,7 +25,7 @@
       "status": "ok",
       "total": 30,
       "lastResult": "3576",
-      "updatedAt": "2026-05-14T11:54:31.430Z"
+      "updatedAt": "2026-05-14T17:00:32.577Z"
     },
     {
       "key": "sdlt",
@@ -33,7 +33,7 @@
       "status": "ok",
       "total": 60,
       "lastResult": "6145",
-      "updatedAt": "2026-05-14T11:54:32.691Z"
+      "updatedAt": "2026-05-14T17:00:33.829Z"
     },
     {
       "key": "hklt",
@@ -41,7 +41,7 @@
       "status": "ok",
       "total": 60,
       "lastResult": "2992",
-      "updatedAt": "2026-05-14T11:54:33.956Z"
+      "updatedAt": "2026-05-14T17:00:35.058Z"
     },
     {
       "key": "chn",
@@ -49,39 +49,39 @@
       "status": "ok",
       "total": 60,
       "lastResult": "6086",
-      "updatedAt": "2026-05-14T11:54:35.422Z"
+      "updatedAt": "2026-05-14T17:00:36.502Z"
     },
     {
       "key": "jpn",
       "nama": "Japan",
-      "status": "error",
-      "total": 0,
-      "lastResult": "-",
-      "updatedAt": "2026-05-14T11:54:36.615Z"
+      "status": "ok",
+      "total": 30,
+      "lastResult": "9876",
+      "updatedAt": "2026-05-14T17:00:37.826Z"
     },
     {
       "key": "cmb2",
       "nama": "Magnum Cambodia",
-      "status": "error",
-      "total": 0,
-      "lastResult": "-",
-      "updatedAt": "2026-05-14T11:54:37.808Z"
+      "status": "ok",
+      "total": 30,
+      "lastResult": "3576",
+      "updatedAt": "2026-05-14T17:00:39.144Z"
     },
     {
       "key": "ncd",
       "nama": "North Carolina Day",
-      "status": "error",
-      "total": 0,
-      "lastResult": "-",
-      "updatedAt": "2026-05-14T11:54:38.806Z"
+      "status": "ok",
+      "total": 30,
+      "lastResult": "9876",
+      "updatedAt": "2026-05-14T17:00:40.314Z"
     },
     {
       "key": "twn",
       "nama": "Taiwan",
-      "status": "error",
-      "total": 0,
-      "lastResult": "-",
-      "updatedAt": "2026-05-14T11:54:39.804Z"
+      "status": "ok",
+      "total": 30,
+      "lastResult": "3576",
+      "updatedAt": "2026-05-14T17:00:41.929Z"
     }
   ]
 }
