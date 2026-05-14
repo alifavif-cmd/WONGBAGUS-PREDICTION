@@ -22,13 +22,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Chromium
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
-
       - name: Install Dependencies
-        run: npm install puppeteer-core
+        run: npm install axios cheerio
 
       - name: Fetch Paito Data
         run: node fetch_paito.js
