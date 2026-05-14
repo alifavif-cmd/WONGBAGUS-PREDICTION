@@ -1,16 +1,85 @@
 {
-  "updatedAt": "2026-01-01T00:00:00.000Z",
-  "note": "File ini akan otomatis diperbarui setiap hari oleh GitHub Actions",
+  "updatedAt": "2026-05-14T09:35:28.380Z",
   "pasaran": [
-    { "key": "sgp",  "nama": "SGP | Singapore",     "status": "pending", "total": 0, "lastResult": "-" },
-    { "key": "hkg",  "nama": "Hongkong Pools",       "status": "pending", "total": 0, "lastResult": "-" },
-    { "key": "syd",  "nama": "Sydneypools",           "status": "pending", "total": 0, "lastResult": "-" },
-    { "key": "sdlt", "nama": "Sydney Lotto",          "status": "pending", "total": 0, "lastResult": "-" },
-    { "key": "hklt", "nama": "Hongkong Lotto",        "status": "pending", "total": 0, "lastResult": "-" },
-    { "key": "chn",  "nama": "Chinapools",            "status": "pending", "total": 0, "lastResult": "-" },
-    { "key": "jpn",  "nama": "Japan",                 "status": "pending", "total": 0, "lastResult": "-" },
-    { "key": "cmb2", "nama": "Magnum Cambodia",       "status": "pending", "total": 0, "lastResult": "-" },
-    { "key": "ncd",  "nama": "North Carolina Day",    "status": "pending", "total": 0, "lastResult": "-" },
-    { "key": "twn",  "nama": "Taiwan",                "status": "pending", "total": 0, "lastResult": "-" }
+    {
+      "key": "sgp",
+      "nama": "SGP | Singapore",
+      "status": "no_data",
+      "total": 0,
+      "lastResult": "-",
+      "updatedAt": "2026-05-14T09:35:12.858Z"
+    },
+    {
+      "key": "hkg",
+      "nama": "Hongkong Pools",
+      "status": "no_data",
+      "total": 0,
+      "lastResult": "-",
+      "updatedAt": "2026-05-14T09:35:14.417Z"
+    },
+    {
+      "key": "syd",
+      "nama": "Sydneypools",
+      "status": "no_data",
+      "total": 0,
+      "lastResult": "-",
+      "updatedAt": "2026-05-14T09:35:15.975Z"
+    },
+    {
+      "key": "sdlt",
+      "nama": "Sydney Lotto",
+      "status": "no_data",
+      "total": 0,
+      "lastResult": "-",
+      "updatedAt": "2026-05-14T09:35:17.533Z"
+    },
+    {
+      "key": "hklt",
+      "nama": "Hongkong Lotto",
+      "status": "no_data",
+      "total": 0,
+      "lastResult": "-",
+      "updatedAt": "2026-05-14T09:35:19.089Z"
+    },
+    {
+      "key": "chn",
+      "nama": "Chinapools",
+      "status": "no_data",
+      "total": 0,
+      "lastResult": "-",
+      "updatedAt": "2026-05-14T09:35:20.645Z"
+    },
+    {
+      "key": "jpn",
+      "nama": "Japan",
+      "status": "no_data",
+      "total": 0,
+      "lastResult": "-",
+      "updatedAt": "2026-05-14T09:35:22.206Z"
+    },
+    {
+      "key": "cmb2",
+      "nama": "Magnum Cambodia",
+      "status": "no_data",
+      "total": 0,
+      "lastResult": "-",
+      "updatedAt": "2026-05-14T09:35:23.762Z"
+    },
+    {
+      "key": "ncd",
+      "nama": "North Carolina Day",
+      "status": "no_data",
+      "total": 0,
+      "lastResult": "-",
+      "updatedAt": "2026-05-14T09:35:25.319Z"
+    },
+    {
+      "key": "twn",
+      "nama": "Taiwan",
+      "status": "no_data",
+      "total": 0,
+      "lastResult": "-",
+      "updatedAt": "2026-05-14T09:35:26.878Z"
+    }
   ]
 }
