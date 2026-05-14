@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WongBagus Prediction</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #0d1117; color: #e6edf3; min-height: 100vh; }
+
+  .header {
+    background: linear-gradient(135deg, #1a1f2e, #2d1b69);
+    padding: 14px 16px;
+    text-align: center;
+    border-bottom: 2px solid #7c3aed;
+  }
+  .header h1 { font-size: 1.2rem; color: #a78bfa; letter-spacing: 1px; }
+  .header .update { font-size: 0.7rem; color: #6b7280; margin-top: 4px; }
+
+  /* Pasaran tabs scroll horizontal */
+  .tabs-wrap {
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 8px 6px;
+    scrollbar-width: none;
+  }
+  .tabs-wrap::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-right: 6px;
+    border-radius: 20px;
+    border: 1px solid #30363d;
+    background: #21262d;
+    color: #8b949e;
+    font-size: 0.72rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    background: #7c3aed;
+    border-color: #7c3aed;
+    color: #fff;
+    font-weight: bold;
+  }
+  .tab-btn .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .dot-ok { background: #22c55e; }
+  .dot-error { background: #ef4444; }
+  .dot-no_data { background: #f59e0b; }
+
+  /* Content */
+  .content { padding: 10px; }
+
+  .pasaran-header {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pasaran-nama { font-size: 0.95rem; font-weight: bold; color: #a78bfa; }
+  .pasaran-info { font-size: 0.68rem; color: #6b7280; }
+
+  /* Paito table */
+  .tbl-wrap {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  thead { background: #21262d; }
+  thead th {
+    padding: 8px 6px;
+    text-align: center;
+    color: #8b949e;
+    font-size: 0.68rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #30363d;
+  }
+  thead th:first-child { text-align: left; padding-left: 10px; }
+  tbody tr:nth-child(even) { background: #0d1117; }
+  tbody tr:nth-child(odd) { background: #161b22; }
+  tbody tr:hover { background: #1f2937; }
+  tbody td {
+    padding: 7px 6px;
+    text-align: center;
+    border-bottom: 1px solid #21262d;
+    color: #cdd5e0;
+  }
+  tbody td:first-child { text-align: left; padding-left: 10px; font-size: 0.7rem; color: #6b7280; }
+
+  /* Digit colored circles */
+  .d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: #fff;
+  }
+  .d0, .d1 { background: #dc2626; }
+  .d2, .d3 { background: #2563eb; }
+  .d4, .d5, .d6 { background: #16a34a; }
+  .d7 { background: #dc2626; }
+  .d8 { background: #374151; border: 1px solid #6b7280; }
+  .d9 { background: #ca8a04; }
+
+  /* result4 full */
+  .res4 { font-size: 0.9rem; font-weight: bold; letter-spacing: 2px; color: #e2e8f0; }
+
+  /* loading / error */
+  .msg {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6b7280;
+  }
+  .msg.err { color: #ef4444; }
+  .spinner {
+    border: 3px solid #30363d;
+    border-top: 3px solid #7c3aed;
+    border-radius: 50%;
+    width: 32px; height: 32px;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Legend */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding: 8px 10px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  .leg-item { display: flex; align-items: center; gap: 4px; font-size: 0.65rem; color: #8b949e; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔮 WONGBAGUS PREDICTION</h1>
+  <div class="update" id="globalUpdate">Memuat data...</div>
+</div>
+
+<div class="tabs-wrap" id="tabs"></div>
+
+<div class="content">
+  <div id="mainContent">
+    <div class="msg"><div class="spinner"></div>Memuat daftar pasaran...</div>
+  </div>
+</div>
+
+<script>
+const BASE = './data/';
+const PASARAN_KEYS = ['sgp','hkg','syd','sdlt','hklt','chn','jpn','cmb2','ncd','twn'];
+let currentKey = null;
+let indexData  = null;
+let cache      = {};
+
+// Paito warna
+function digitCircle(n) {
+  return `<span class="d d${n}">${n}</span>`;
+}
+
+function formatDate(iso) {
+  if (!iso) return '-';
+  try {
+    const d = new Date(iso);
+    return d.toLocaleString('id-ID', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
+  } catch { return iso; }
+}
+
+async function fetchJSON(url) {
+  const r = await fetch(url + '?t=' + Date.now());
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
+}
+
+async function loadIndex() {
+  try {
+    indexData = await fetchJSON(BASE + 'index.json');
+    document.getElementById('globalUpdate').textContent =
+      'Update: ' + formatDate(indexData.updatedAt);
+    buildTabs(indexData.pasaran);
+    // Load pasaran pertama yg ok
+    const first = indexData.pasaran.find(p => p.status === 'ok') || indexData.pasaran[0];
+    if (first) loadPasaran(first.key);
+  } catch(e) {
+    document.getElementById('mainContent').innerHTML =
+      `<div class="msg err">❌ Gagal load index.json<br><small>${e.message}</small><br><br>
+       Pastikan GitHub Actions sudah berjalan minimal sekali.</div>`;
+  }
+}
+
+function buildTabs(pasaranList) {
+  const tabs = document.getElementById('tabs');
+  tabs.innerHTML = '';
+  pasaranList.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn';
+    btn.id = 'tab-' + p.key;
+    btn.innerHTML = `<span class="dot dot-${p.status}"></span>${p.nama || p.key}`;
+    btn.onclick = () => loadPasaran(p.key);
+    tabs.appendChild(btn);
+  });
+}
+
+async function loadPasaran(key) {
+  if (currentKey) {
+    const prev = document.getElementById('tab-' + currentKey);
+    if (prev) prev.classList.remove('active');
+  }
+  currentKey = key;
+  const tab = document.getElementById('tab-' + key);
+  if (tab) tab.classList.add('active');
+
+  document.getElementById('mainContent').innerHTML =
+    `<div class="msg"><div class="spinner"></div>Memuat ${key.toUpperCase()}...</div>`;
+
+  try {
+    const data = cache[key] || await fetchJSON(BASE + key + '.json');
+    cache[key] = data;
+    renderPasaran(data);
+  } catch(e) {
+    document.getElementById('mainContent').innerHTML =
+      `<div class="msg err">❌ Gagal load data ${key.toUpperCase()}<br><small>${e.message}</small></div>`;
+  }
+}
+
+function renderPasaran(d) {
+  const rows = d.data || [];
+  const el = document.getElementById('mainContent');
+
+  if (!rows.length) {
+    el.innerHTML = `
+      <div class="pasaran-header">
+        <div><div class="pasaran-nama">${d.nama}</div>
+        <div class="pasaran-info">Status: ${d.status}</div></div>
+      </div>
+      <div class="msg">⚠ Tidak ada data tersedia</div>`;
+    return;
+  }
+
+  let tableRows = rows.map((r, i) => {
+    const as     = r.as     || '-';
+    const cop    = r.cop    || '-';
+    const kepala = r.kepala || '-';
+    const ekor   = r.ekor   || '-';
+    const asC    = as !== '-'     ? digitCircle(as)     : '-';
+    const copC   = cop !== '-'    ? digitCircle(cop)    : '-';
+    const kepC   = kepala !== '-' ? digitCircle(kepala) : '-';
+    const ekrC   = ekor !== '-'   ? digitCircle(ekor)   : '-';
+    return `<tr>
+      <td>${r.tanggal || '-'}<br><span style="color:#4b5563;font-size:0.65rem">${r.hari || ''}</span></td>
+      <td>${asC}</td>
+      <td>${copC}</td>
+      <td>${kepC}</td>
+      <td>${ekrC}</td>
+      <td class="res4">${r.result4 || '-'}</td>
+    </tr>`;
+  }).join('');
+
+  el.innerHTML = `
+    <div class="pasaran-header">
+      <div>
+        <div class="pasaran-nama">${d.nama}</div>
+        <div class="pasaran-info">${rows.length} data • Update: ${formatDate(d.updatedAt)}</div>
+      </div>
+      <div style="font-size:1.4rem;font-weight:bold;color:#22c55e;letter-spacing:2px">${rows[0]?.result4 || '-'}</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>TANGGAL</th>
+            <th>AS</th>
+            <th>KOP</th>
+            <th>KEPALA</th>
+            <th>EKOR</th>
+            <th>RESULT</th>
+          </tr>
+        </thead>
+        <tbody>${tableRows}</tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <div class="leg-item"><span class="d d0" style="width:18px;height:18px;font-size:0.6rem">0</span> 0,1,7 Merah</div>
+      <div class="leg-item"><span class="d d2" style="width:18px;height:18px;font-size:0.6rem">2</span> 2,3 Biru</div>
+      <div class="leg-item"><span class="d d4" style="width:18px;height:18px;font-size:0.6rem">4</span> 4,5,6 Hijau</div>
+      <div class="leg-item"><span class="d d8" style="width:18px;height:18px;font-size:0.6rem">8</span> 8 Hitam</div>
+      <div class="leg-item"><span class="d d9" style="width:18px;height:18px;font-size:0.6rem">9</span> 9 Kuning</div>
+    </div>`;
+}
+
+loadIndex();
+</script>
+</body>
+</html>
