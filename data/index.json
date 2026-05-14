@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-14T09:35:28.380Z",
+  "updatedAt": "2026-05-14T09:57:23.065Z",
   "pasaran": [
     {
       "key": "sgp",
@@ -7,7 +7,7 @@
       "status": "no_data",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T09:35:12.858Z"
+      "updatedAt": "2026-05-14T09:54:50.092Z"
     },
     {
       "key": "hkg",
@@ -15,7 +15,7 @@
       "status": "no_data",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T09:35:14.417Z"
+      "updatedAt": "2026-05-14T09:55:06.706Z"
     },
     {
       "key": "syd",
@@ -23,7 +23,7 @@
       "status": "no_data",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T09:35:15.975Z"
+      "updatedAt": "2026-05-14T09:55:24.097Z"
     },
     {
       "key": "sdlt",
@@ -31,7 +31,7 @@
       "status": "no_data",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T09:35:17.533Z"
+      "updatedAt": "2026-05-14T09:55:40.785Z"
     },
     {
       "key": "hklt",
@@ -39,7 +39,7 @@
       "status": "no_data",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T09:35:19.089Z"
+      "updatedAt": "2026-05-14T09:55:57.588Z"
     },
     {
       "key": "chn",
@@ -47,7 +47,7 @@
       "status": "no_data",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T09:35:20.645Z"
+      "updatedAt": "2026-05-14T09:56:14.226Z"
     },
     {
       "key": "jpn",
@@ -55,7 +55,7 @@
       "status": "no_data",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T09:35:22.206Z"
+      "updatedAt": "2026-05-14T09:56:30.880Z"
     },
     {
       "key": "cmb2",
@@ -63,7 +63,7 @@
       "status": "no_data",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T09:35:23.762Z"
+      "updatedAt": "2026-05-14T09:56:47.531Z"
     },
     {
       "key": "ncd",
@@ -71,7 +71,7 @@
       "status": "no_data",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T09:35:25.319Z"
+      "updatedAt": "2026-05-14T09:57:04.211Z"
     },
     {
       "key": "twn",
@@ -79,7 +79,7 @@
       "status": "no_data",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T09:35:26.878Z"
+      "updatedAt": "2026-05-14T09:57:20.862Z"
     }
   ]
 }
