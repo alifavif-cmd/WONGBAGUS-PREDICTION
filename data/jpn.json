@@ -1,8 +1,9 @@
 {
   "key": "jpn",
   "nama": "Japan",
-  "status": "no_data",
+  "status": "error",
+  "error": "Request failed with status code 404",
   "total": 0,
   "data": [],
-  "updatedAt": "2026-05-14T11:26:17.929Z"
+  "updatedAt": "2026-05-14T11:54:36.615Z"
 }

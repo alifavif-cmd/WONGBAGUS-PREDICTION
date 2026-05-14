@@ -1,8 +1,9 @@
 {
   "key": "ncd",
   "nama": "North Carolina Day",
-  "status": "no_data",
+  "status": "error",
+  "error": "Request failed with status code 404",
   "total": 0,
   "data": [],
-  "updatedAt": "2026-05-14T11:26:20.654Z"
+  "updatedAt": "2026-05-14T11:54:38.806Z"
 }

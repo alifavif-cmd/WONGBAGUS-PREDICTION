@@ -1,87 +1,87 @@
 {
-  "updatedAt": "2026-05-14T11:26:23.179Z",
-  "ok": 0,
+  "updatedAt": "2026-05-14T11:54:40.606Z",
+  "ok": 6,
   "total": 10,
   "pasaran": [
     {
       "key": "sgp",
       "nama": "SGP | Singapore",
-      "status": "no_data",
-      "total": 0,
-      "lastResult": "-",
-      "updatedAt": "2026-05-14T11:25:59.178Z"
+      "status": "ok",
+      "total": 30,
+      "lastResult": "9876",
+      "updatedAt": "2026-05-14T11:54:28.280Z"
     },
     {
       "key": "hkg",
       "nama": "Hongkong Pools",
-      "status": "no_data",
-      "total": 0,
-      "lastResult": "-",
-      "updatedAt": "2026-05-14T11:26:00.545Z"
+      "status": "ok",
+      "total": 30,
+      "lastResult": "9498",
+      "updatedAt": "2026-05-14T11:54:30.067Z"
     },
     {
       "key": "syd",
       "nama": "Sydneypools",
-      "status": "no_data",
-      "total": 0,
-      "lastResult": "-",
-      "updatedAt": "2026-05-14T11:26:02.079Z"
+      "status": "ok",
+      "total": 30,
+      "lastResult": "3576",
+      "updatedAt": "2026-05-14T11:54:31.430Z"
     },
     {
       "key": "sdlt",
       "nama": "Sydney Lotto",
-      "status": "no_data",
-      "total": 0,
-      "lastResult": "-",
-      "updatedAt": "2026-05-14T11:26:03.710Z"
+      "status": "ok",
+      "total": 60,
+      "lastResult": "6145",
+      "updatedAt": "2026-05-14T11:54:32.691Z"
     },
     {
       "key": "hklt",
       "nama": "Hongkong Lotto",
-      "status": "no_data",
-      "total": 0,
-      "lastResult": "-",
-      "updatedAt": "2026-05-14T11:26:15.035Z"
+      "status": "ok",
+      "total": 60,
+      "lastResult": "2992",
+      "updatedAt": "2026-05-14T11:54:33.956Z"
     },
     {
       "key": "chn",
       "nama": "Chinapools",
-      "status": "no_data",
-      "total": 0,
-      "lastResult": "-",
-      "updatedAt": "2026-05-14T11:26:16.459Z"
+      "status": "ok",
+      "total": 60,
+      "lastResult": "6086",
+      "updatedAt": "2026-05-14T11:54:35.422Z"
     },
     {
       "key": "jpn",
       "nama": "Japan",
-      "status": "no_data",
+      "status": "error",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T11:26:17.929Z"
+      "updatedAt": "2026-05-14T11:54:36.615Z"
     },
     {
       "key": "cmb2",
       "nama": "Magnum Cambodia",
-      "status": "no_data",
+      "status": "error",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T11:26:19.319Z"
+      "updatedAt": "2026-05-14T11:54:37.808Z"
     },
     {
       "key": "ncd",
       "nama": "North Carolina Day",
-      "status": "no_data",
+      "status": "error",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T11:26:20.654Z"
+      "updatedAt": "2026-05-14T11:54:38.806Z"
     },
     {
       "key": "twn",
       "nama": "Taiwan",
-      "status": "no_data",
+      "status": "error",
       "total": 0,
       "lastResult": "-",
-      "updatedAt": "2026-05-14T11:26:21.977Z"
+      "updatedAt": "2026-05-14T11:54:39.804Z"
     }
   ]
 }

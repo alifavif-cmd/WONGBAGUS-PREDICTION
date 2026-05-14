@@ -1,8 +1,9 @@
 {
   "key": "cmb2",
   "nama": "Magnum Cambodia",
-  "status": "no_data",
+  "status": "error",
+  "error": "Request failed with status code 404",
   "total": 0,
   "data": [],
-  "updatedAt": "2026-05-14T11:26:19.319Z"
+  "updatedAt": "2026-05-14T11:54:37.808Z"
 }
