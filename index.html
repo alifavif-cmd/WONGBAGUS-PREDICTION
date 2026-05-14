@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scanner Rumus Pro 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;background:#f1f5f9;color:#1e293b;transition:background .2s,color .2s}
+body.dark{background:#0f172a;color:#e2e8f0}
+
+.topbar{background:linear-gradient(135deg,#1e3a8a,#1d4ed8);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.topbar-left{display:flex;flex-direction:column}
+.topbar-title{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px}
+.topbar-sub{font-size:10px;color:#93c5fd;margin-top:2px}
+.topbar-right{display:flex;gap:8px;align-items:center}
+.hot{background:#ef4444;color:#fff;font-size:9px;font-weight:800;padding:1px 5px;border-radius:4px}
+.icon-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:6px 11px;cursor:pointer;font-size:15px;line-height:1}
+
+.wrap{max-width:680px;margin:0 auto;padding:12px}
+
+/* SETUP BANNER */
+.setup-banner{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:10px;padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;gap:10px;cursor:pointer;box-shadow:0 2px 8px rgba(245,158,11,.3)}
+.setup-banner.hide{display:none}
+.setup-banner-txt{flex:1;font-size:12px;font-weight:700}
+.setup-banner-sub{font-size:10px;font-weight:400;opacity:.9;margin-top:2px}
+
+/* DATA STATUS BAR */
+.data-bar{background:#fff;border-radius:10px;border:1px solid #e2e8f0;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+body.dark .data-bar{background:#1e293b;border-color:#334155}
+.data-bar.hide{display:none}
+.data-bar-left{display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-green{background:#10b981;box-shadow:0 0 6px #10b981}
+.dot-red{background:#ef4444}
+.dot-yellow{background:#f59e0b;animation:pulse .8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.data-info{font-size:11px;font-weight:700}
+.data-sub{font-size:10px;color:#64748b}
+.btn-refresh-data{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer}
+body.dark .btn-refresh-data{background:#1e3a8a;border-color:#1d4ed8;color:#93c5fd}
+
+/* PAITO MINI */
+.paito-mini{display:none;margin-top:10px;border-top:1px dashed #e2e8f0;padding-top:10px}
+body.dark .paito-mini{border-top-color:#334155}
+.paito-mini.show{display:block}
+.paito-mini-title{font-size:10px;font-weight:800;color:#64748b;text-transform:uppercase;margin-bottom:6px;letter-spacing:.5px}
+.paito-scroll{display:flex;gap:5px;overflow-x:auto;padding-bottom:4px}
+.paito-pill{flex-shrink:0;background:#1e3a8a;color:#fff;border-radius:6px;padding:4px 8px;font-family:monospace;font-size:12px;font-weight:800;text-align:center}
+.paito-pill span{display:block;font-size:9px;font-weight:400;color:#93c5fd;margin-top:1px}
+
+.card{background:#fff;border-radius:12px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:16px;margin-bottom:14px}
+body.dark .card{background:#1e293b;border-color:#334155}
+.card-title{font-size:15px;font-weight:800;color:#1e3a8a;padding-bottom:10px;border-bottom:2px solid #1e3a8a;margin-bottom:14px}
+.card-sub{font-size:11px;color:#64748b;font-weight:400;margin-left:6px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:10px}
+label.lbl{display:block;font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+select{width:100%;padding:7px 8px;border:1px solid #e2e8f0;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;outline:none;transition:border-color .2s}
+select:focus{border-color:#3b82f6;box-shadow:0 0 0 2px rgba(59,130,246,.15)}
+body.dark select{background:#0f172a;color:#e2e8f0;border-color:#334155}
+.sel-y{color:#b45309;border-color:#fde68a;background:#fffbeb}
+.sel-g{color:#065f46;border-color:#a7f3d0;background:#ecfdf5}
+.sel-r{color:#991b1b;border-color:#fecaca;background:#fef2f2}
+.sel-p{color:#5b21b6;border-color:#ddd6fe;background:#f5f3ff}
+body.dark .sel-y{background:#1a120a}
+body.dark .sel-g{background:#061a14}
+body.dark .sel-r{background:#1a0a0a}
+body.dark .sel-p{background:#0f0a1a}
+
+.btn-scan{width:100%;padding:11px;margin-top:12px;background:linear-gradient(135deg,#1e3a8a,#1d4ed8);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 3px 10px rgba(30,58,138,.3);letter-spacing:.5px}
+.btn-scan.stop{background:linear-gradient(135deg,#dc2626,#b91c1c)}
+
+.prog-wrap{margin-top:14px}
+.prog-track{background:#0f172a;border-radius:8px;height:26px;position:relative;overflow:hidden;box-shadow:inset 0 2px 8px rgba(0,0,0,.8)}
+.prog-bar{width:0;height:100%;background:linear-gradient(90deg,#1d4ed8,#3b82f6,#60a5fa);transition:width .3s}
+.prog-txt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;font-family:monospace;letter-spacing:1px;text-shadow:0 1px 2px rgba(0,0,0,.8)}
+
+.tbl-wrap{border-radius:10px;border:1px solid #e2e8f0;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+body.dark .tbl-wrap{border-color:#334155}
+table{border-collapse:collapse;width:100%;table-layout:fixed}
+thead tr.th-gold{background:linear-gradient(135deg,#d97706,#f59e0b,#fbbf24)}
+thead tr.th-blue{background:linear-gradient(135deg,#1e3a8a,#1d4ed8,#3b82f6)}
+th{color:#fff;font-size:10px;font-weight:800;text-transform:uppercase;padding:8px 4px;text-align:center}
+tbody tr{border-bottom:1px solid #f1f5f9;transition:background .15s}
+body.dark tbody tr{border-bottom-color:#1e293b}
+tbody tr:hover{background:#f8fafc}
+body.dark tbody tr:hover{background:#0f172a}
+td{padding:7px 4px;text-align:center;font-size:11px}
+.td-formula{font-family:monospace;font-size:10px;color:#1e40af;font-weight:700;text-align:left;padding-left:6px;word-break:break-all}
+.td-pred{font-weight:800;font-size:12px;font-family:monospace}
+.td-pjg{font-weight:700;color:#10b981}
+.badge{display:inline-block;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#1e3a8a,#3b82f6);color:#fff;font-size:10px;font-weight:800;line-height:22px;text-align:center}
+.aksi-btn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:5px;border:none;cursor:pointer;font-size:12px;margin:0 1px}
+
+.act-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px;flex-wrap:wrap;gap:6px}
+.btn-sm{display:inline-flex;align-items:center;gap:3px;padding:5px 10px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid transparent;white-space:nowrap}
+.btn-sm:disabled{opacity:.4;cursor:not-allowed}
+.btn-clear{background:#f1f5f9;color:#64748b;border-color:#cbd5e1}
+.btn-col{background:#fffbeb;color:#b45309;border-color:#fde68a}
+.btn-del{background:#fef2f2;color:#dc2626;border-color:#fecaca}
+.btn-trek{background:#f59e0b;color:#fff;border-color:#d97706}
+.btn-rekap{background:#2563eb;color:#fff;border-color:#1e40af}
+.btn-save{background:#10b981;color:#fff;border-color:#059669}
+body.dark .btn-clear{background:#1e293b;color:#94a3b8;border-color:#334155}
+
+.filter-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px}
+.fsel{padding:4px 8px;border:1px solid #e2e8f0;border-radius:6px;font-size:11px;font-weight:600;background:#fff;color:#334155}
+body.dark .fsel{background:#1e293b;color:#e2e8f0;border-color:#334155}
+.btn-upd{display:inline-flex;align-items:center;gap:3px;padding:4px 8px;background:#fff;color:#2563eb;border:1px solid #2563eb;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer}
+body.dark .btn-upd{background:#1e293b}
+
+.s-aktif{display:inline-block;padding:2px 6px;border-radius:4px;font-size:9px;font-weight:800;text-transform:uppercase;background:#dcfce7;color:#166534}
+.s-patah{display:inline-block;padding:2px 6px;border-radius:4px;font-size:9px;font-weight:800;text-transform:uppercase;background:#fef2f2;color:#dc2626}
+
+.terminal{background:#fff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+body.dark .terminal{background:#1e293b;border-color:#334155}
+.term-hdr{background:#1e3a8a;color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.term-title{font-size:12px;font-weight:700}
+.term-code{font-family:monospace;font-size:10px;color:#93c5fd;margin-left:8px}
+.btn-copy{background:#3b82f6;border:1px solid #2563eb;color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:5px;cursor:pointer}
+.term-body{padding:12px;background:#f8fafc;overflow-x:auto}
+body.dark .term-body{background:#0f172a}
+pre{font-family:'Courier New',monospace;font-size:11.5px;line-height:1.7;white-space:pre;margin:0;min-height:60px}
+
+.disc{padding:10px 12px;background:#fefce8;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:6px;display:flex;gap:8px;font-size:11px;color:#92400e;line-height:1.5;margin-bottom:14px}
+.note{margin-top:8px;font-size:11px;color:#64748b;font-style:italic}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;z-index:9999;background:rgba(15,23,42,.7);backdrop-filter:blur(5px);align-items:center;justify-content:center}
+.modal-bg.show{display:flex}
+.modal-box{background:#fff;border-radius:16px;padding:24px;max-width:340px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+body.dark .modal-box{background:#1e293b;color:#e2e8f0}
+.modal-icon{font-size:28px;margin-bottom:10px;text-align:center}
+.modal-title{font-size:15px;font-weight:800;margin-bottom:6px;text-align:center}
+.modal-msg{font-size:12px;color:#475569;margin-bottom:5px;text-align:center}
+body.dark .modal-msg{color:#94a3b8}
+.modal-warn{font-size:11px;color:#dc2626;font-weight:700;margin-bottom:16px;text-align:center}
+.modal-btns{display:flex;gap:10px;margin-top:14px}
+.modal-btns button{flex:1;padding:10px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer}
+.m-cancel{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1}
+.m-ok{background:#dc2626;color:#fff;border:none}
+
+/* SETUP MODAL */
+.setup-modal-box{background:#fff;border-radius:16px;padding:24px;max-width:360px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+body.dark .setup-modal-box{background:#1e293b}
+.setup-label{font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;display:block}
+.setup-input{width:100%;padding:9px 12px;border:2px solid #e2e8f0;border-radius:8px;font-size:13px;font-weight:600;outline:none;transition:border-color .2s;margin-bottom:6px}
+.setup-input:focus{border-color:#3b82f6}
+body.dark .setup-input{background:#0f172a;color:#e2e8f0;border-color:#334155}
+.setup-hint{font-size:10px;color:#94a3b8;margin-bottom:16px;line-height:1.5}
+.btn-setup-save{width:100%;padding:11px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:800;cursor:pointer;box-shadow:0 3px 8px rgba(16,185,129,.3)}
+.btn-setup-skip{width:100%;padding:8px;background:transparent;color:#94a3b8;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;margin-top:8px}
+
+.empty{padding:15px;color:#94a3b8;text-align:center;font-style:italic}
+@media(max-width:480px){.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-title">🔍 Scanner Angkanet Pro <span class="hot">HOT</span></div>
+    <div class="topbar-sub" id="data-status-txt">Memuat data...</div>
+  </div>
+  <div class="topbar-right">
+    <button class="icon-btn" onclick="openSetup()" title="Pengaturan Proxy">⚙️</button>
+    <button class="icon-btn" onclick="toggleDark()" id="dark-btn">🌙</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- SETUP BANNER -->
+  <div class="setup-banner" id="setup-banner" onclick="openSetup()">
+    <span style="font-size:22px">🔗</span>
+    <div class="setup-banner-txt">
+      Hubungkan ke Proxy Data Anda
+      <div class="setup-banner-sub">Tap di sini → masukkan username GitHub → data auto-update tiap hari</div>
+    </div>
+    <span style="font-size:18px">›</span>
+  </div>
+
+  <!-- DATA STATUS BAR -->
+  <div class="data-bar hide" id="data-bar">
+    <div class="data-bar-left">
+      <div class="dot dot-green" id="data-dot"></div>
+      <div>
+        <div class="data-info" id="data-info-txt">Data Online</div>
+        <div class="data-sub" id="data-sub-txt">–</div>
+      </div>
+    </div>
+    <button class="btn-refresh-data" onclick="loadDataProxy()">🔄 Refresh</button>
+  </div>
+
+  <!-- PAITO MINI PREVIEW -->
+  <div class="data-bar hide" id="paito-preview-card" style="flex-direction:column;align-items:flex-start">
+    <div style="display:flex;align-items:center;justify-content:space-between;width:100%">
+      <div style="font-size:11px;font-weight:800;color:#1e3a8a">📊 PAITO TERAKHIR: <span id="paito-mkt-name">–</span></div>
+      <button onclick="togglePaitoMini()" style="background:none;border:none;cursor:pointer;font-size:11px;color:#64748b" id="paito-toggle-btn">▲ Tutup</button>
+    </div>
+    <div class="paito-mini show" id="paito-mini">
+      <div class="paito-mini-title">10 RESULT TERAKHIR</div>
+      <div class="paito-scroll" id="paito-pills"></div>
+    </div>
+  </div>
+
+  <!-- SCANNER CARD -->
+  <div class="card">
+    <div class="card-title">⚡ Scanner Rumus Pro 2026 <span class="card-sub">Deteksi Angka Main Akurat</span></div>
+
+    <div class="grid">
+      <div>
+        <label class="lbl">Pasaran</label>
+        <select id="f-market" class="sel-y" onchange="onMarketChange()">
+          <option value="chn">⭐ CHINAPOOLS</option>
+          <option value="hklt">⭐ HONGKONG LOTTO</option>
+          <option value="hkg">⭐ HONGKONG POOLS</option>
+          <option value="jpn">⭐ JAPAN</option>
+          <option value="cmb2">⭐ MAGNUM CAMBODIA</option>
+          <option value="ncd">⭐ NORTH CAROLINA DAY</option>
+          <option value="sgp" selected>⭐ SGP | SINGAPORE</option>
+          <option value="sdlt">⭐ SYDNEY LOTTO</option>
+          <option value="syd">⭐ SYDNEYPOOLS</option>
+          <option value="twn">⭐ TAIWAN</option>
+        </select>
+      </div>
+      <div>
+        <label class="lbl">Target</label>
+        <select id="f-fcol" class="sel-g">
+          <optgroup label="AI VARIANT">
+            <option value="cb">colok bebas (cb)</option>
+            <option value="ai" selected>ai 2d belakang</option>
+            <option value="aid">ai 2d depan</option>
+          </optgroup>
+          <optgroup label="SINGLE">
+            <option value="a">as (a)</option>
+            <option value="c">cop (c)</option>
+            <option value="k">kepala (k)</option>
+            <option value="e">ekor (e)</option>
+            <option value="j">jumlah 2d</option>
+          </optgroup>
+        </select>
+      </div>
+      <div>
+        <label class="lbl">Digit</label>
+        <select id="f-digit">
+          <option>1</option><option>2</option><option>3</option>
+          <option selected>4</option><option>5</option><option>6</option>
+          <option>7</option><option>8</option><option>9</option>
+        </select>
+      </div>
+      <div>
+        <label class="lbl">Limit Baris</label>
+        <select id="f-limit">
+          <option>4</option><option>5</option><option>6</option><option>7</option>
+          <option>8</option><option>9</option><option>10</option><option>11</option>
+          <option>12</option><option>13</option><option>14</option><option>15</option>
+          <option>16</option><option>17</option><option>18</option><option>19</option>
+          <option selected>20</option><option>21</option><option>22</option>
+          <option>23</option><option>24</option><option>25</option>
+        </select>
+      </div>
+      <div>
+        <label class="lbl">Maks Patah</label>
+        <select id="f-patah" class="sel-r">
+          <option selected>0</option><option>1</option><option>2</option><option>3</option>
+          <option>4</option><option>5</option><option>6</option><option>7</option>
+          <option>8</option><option>9</option><option>10</option>
+        </select>
+      </div>
+      <div>
+        <label class="lbl">Target Rumus</label>
+        <select id="f-maxrms" class="sel-p">
+          <option>1</option><option>2</option><option>3</option><option>4</option>
+          <option>5</option><option>6</option><option>7</option><option>8</option>
+          <option>9</option><option selected>10</option>
+        </select>
+      </div>
+    </div>
+
+    <select id="f-day" class="sel-y" style="width:100%">
+      <option value="">-- SEMUA HARI --</option>
+      <option>Senin</option><option>Selasa</option><option>Rabu</option>
+      <option>Kamis</option><option>Jumat</option><option>Sabtu</option><option>Minggu</option>
+    </select>
+
+    <button class="btn-scan" id="btn-scan" onclick="startScan()">🔍 MULAI SCAN</button>
+
+    <div id="prog-wrap" style="display:none;margin-top:14px">
+      <div class="prog-track">
+        <div class="prog-bar" id="prog-bar"></div>
+        <div class="prog-txt" id="prog-txt">MENYIAPKAN RADAR...</div>
+      </div>
+    </div>
+
+    <div id="result-area" style="margin-top:16px;display:none">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr class="th-gold">
+            <th style="width:36px">RMS</th>
+            <th style="text-align:left;padding-left:6px">FORMULA</th>
+            <th>PRED</th>
+            <th style="width:34px">PJG</th>
+            <th style="width:54px">AKSI</th>
+          </tr></thead>
+          <tbody id="result-body"></tbody>
+        </table>
+      </div>
+      <div class="act-row">
+        <button class="btn-sm btn-clear" onclick="clearResult()">✕ Clear</button>
+        <button class="btn-sm btn-col" onclick="addAll()">🔖 Masukkan Ke Koleksi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- KOLEKSI -->
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:2px solid #1e3a8a;margin-bottom:12px;flex-wrap:wrap;gap:6px">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:14px">🔖</span>
+        <span style="font-size:12px;font-weight:800;color:#1e3a8a">KOLEKSI RUMUS SAYA</span>
+        <span id="col-count" style="font-size:10px;color:#64748b;font-weight:600">0 rumus</span>
+      </div>
+    </div>
+    <div class="filter-row">
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <select id="fm" class="fsel" onchange="renderCol()"><option value="ALL">Semua Pasaran</option></select>
+        <select id="ft" class="fsel" onchange="renderCol()"><option value="ALL">Semua Tipe</option></select>
+      </div>
+      <button class="btn-upd" onclick="refreshAll()">🔄 UPDATE</button>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr class="th-blue">
+          <th style="width:28px"><input type="checkbox" id="chk-all" onchange="toggleAll(this)"></th>
+          <th style="width:36px">RMS</th>
+          <th>PRED</th>
+          <th style="width:34px">PJG</th>
+          <th style="width:58px">STATUS</th>
+        </tr></thead>
+        <tbody id="col-body"></tbody>
+      </table>
+    </div>
+    <div class="act-row" style="margin-top:10px">
+      <button class="btn-sm btn-del" id="btn-del" disabled onclick="askDelete()">🗑 Hapus</button>
+      <div style="display:flex;gap:5px;flex-wrap:wrap">
+        <button class="btn-sm btn-trek"  id="btn-trek"  disabled onclick="doTrek()">📊 TREK</button>
+        <button class="btn-sm btn-rekap" id="btn-rekap" disabled onclick="doRekap()">📋 REKAP</button>
+        <button class="btn-sm btn-save"  id="btn-bank"  disabled onclick="doSave()">💾 SAVE</button>
+      </div>
+    </div>
+    <p class="note">🔒 Koleksi tersimpan di browser Anda saja.</p>
+  </div>
+
+  <!-- TERMINAL -->
+  <div class="terminal">
+    <div class="term-hdr">
+      <div class="term-title">💻 HASIL TERMINAL <span class="term-code" id="term-code"></span></div>
+      <button class="btn-copy" id="btn-copy" onclick="copyTerm()">📋 COPY</button>
+    </div>
+    <div class="term-body">
+      <pre id="term-log">Tekan TREK atau REKAP untuk melihat hasil di sini.</pre>
+    </div>
+  </div>
+
+  <div class="disc">⚠️ <p><strong>Disclaimer:</strong> Hasil scanner bersifat analisa historis dan tidak menjamin hasil. Gunakan sebagai hiburan semata.</p></div>
+
+</div>
+
+<!-- SETUP MODAL -->
+<div class="modal-bg" id="setup-modal">
+  <div class="setup-modal-box">
+    <div style="font-size:28px;text-align:center;margin-bottom:10px">🔗</div>
+    <div style="font-size:15px;font-weight:800;text-align:center;margin-bottom:6px">Setup Proxy Data</div>
+    <div style="font-size:12px;color:#64748b;text-align:center;margin-bottom:16px;line-height:1.5">Masukkan username GitHub Anda.<br>Data paito akan auto-update tiap hari.</div>
+
+    <label class="setup-label">Username GitHub</label>
+    <input type="text" id="setup-username" class="setup-input" placeholder="contoh: johndoe" autocomplete="off" autocorrect="off" autocapitalize="off">
+    <div class="setup-hint">
+      📁 Nama repo harus: <strong>proxy-paito</strong><br>
+      🌐 Data URL: <span id="setup-preview" style="color:#2563eb;font-size:10px">https://USERNAME.github.io/proxy-paito/data/</span>
+    </div>
+
+    <button class="btn-setup-save" onclick="saveSetup()">✅ Simpan & Muat Data</button>
+    <button class="btn-setup-skip" onclick="closeSetup()">Lewati (gunakan data offline)</button>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal-box">
+    <div class="modal-icon">🗑</div>
+    <div class="modal-title">Hapus Permanen?</div>
+    <p class="modal-msg" id="modal-msg"></p>
+    <p class="modal-warn">⚠️ Tindakan ini tidak dapat dibatalkan!</p>
+    <div class="modal-btns">
+      <button class="m-cancel" onclick="closeModal()">Batal</button>
+      <button class="m-ok" onclick="doDelete()">Ya, Hapus</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+// KONSTANTA
+// ════════════════════════════════════════════════════════════════
+const MKT={chn:"CHINAPOOLS",hklt:"HONGKONG LOTTO",hkg:"HONGKONG POOLS",jpn:"JAPAN",cmb2:"MAGNUM CAMBODIA",ncd:"NORTH CAROLINA DAY",sgp:"SGP | SINGAPORE",sdlt:"SYDNEY LOTTO",syd:"SYDNEYPOOLS",twn:"TAIWAN"};
+const MSGS=["MENYIAPKAN RADAR...","LOADING PAITO DATA...","ANALISIS POLA HISTORIS...","MENGEKSPLORASI FORMULA...","FILTER KOMBINASI...","VALIDASI TRACK RECORD...","KOMPUTASI MULTI-LAYER...","SINKRONISASI MATRIX...","HAMPIR SELESAI...","MENYUSUN HASIL..."];
+const MISTIK=["M1","M2","M3","M4","M5","MX","MS","ML"];
+
+// ════════════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════════════
+let results=[], collection=[], selectedKeys=new Set(), scanning=false, scanTick=null;
+let paitoCache={};   // { market: [{tanggal,hari,result4,as,cop,kepala,ekor}] }
+let proxyBase='';    // https://username.github.io/proxy-paito/data
+
+try{ collection=JSON.parse(localStorage.getItem("sk_col")||"[]"); }catch(e){}
+
+// ════════════════════════════════════════════════════════════════
+// SETUP PROXY
+// ════════════════════════════════════════════════════════════════
+function initProxy(){
+  proxyBase='https://alifavif-cmd.github.io/WONGBAGUS-PREDICTION/data';
+  document.getElementById("setup-banner").classList.add("hide");
+  document.getElementById("data-bar").classList.remove("hide");
+  setDataStatus("yellow","Menghubungkan...","WONGBAGUS-PREDICTION");
+  loadDataProxy();
+}
+
+function openSetup(){
+  const user=localStorage.getItem("sk_ghuser")||'';
+  document.getElementById("setup-username").value=user;
+  updateSetupPreview();
+  document.getElementById("setup-modal").classList.add("show");
+  setTimeout(()=>document.getElementById("setup-username").focus(),200);
+}
+function closeSetup(){ document.getElementById("setup-modal").classList.remove("show"); }
+function updateSetupPreview(){
+  const u=(document.getElementById("setup-username").value||'USERNAME').trim();
+  document.getElementById("setup-preview").textContent=`https://${u}.github.io/proxy-paito/data/`;
+}
+document.getElementById("setup-username").addEventListener("input",updateSetupPreview);
+
+function saveSetup(){
+  const user=document.getElementById("setup-username").value.trim();
+  if(!user){ alert("Username GitHub tidak boleh kosong!"); return; }
+  localStorage.setItem("sk_ghuser",user);
+  closeSetup();
+  initProxy();
+}
+
+// ════════════════════════════════════════════════════════════════
+// FETCH DATA PROXY
+// ════════════════════════════════════════════════════════════════
+async function loadDataProxy(){
+  if(!proxyBase) return;
+  setDataStatus("yellow","Mengambil data...","mohon tunggu");
+  try{
+    const res=await fetch(`${proxyBase}/index.json?t=${Date.now()}`,{cache:"no-store"});
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const idx=await res.json();
+    const updated=new Date(idx.updatedAt).toLocaleString("id-ID");
+    setDataStatus("green","✓ Data Online",`Update: ${updated}`);
+    document.getElementById("paito-preview-card").classList.remove("hide");
+    setTopSub(`✓ Data live – update: ${updated}`);
+    // Load paito untuk market yang aktif
+    onMarketChange();
+  } catch(err){
+    setDataStatus("red","✗ Gagal konek",err.message);
+    setTopSub("⚠ Proxy offline – data lokal digunakan");
+  }
+}
+
+async function fetchMarketData(market){
+  if(!proxyBase) return null;
+  if(paitoCache[market]) return paitoCache[market];
+  try{
+    const res=await fetch(`${proxyBase}/${market}.json?t=${Date.now()}`,{cache:"no-store"});
+    if(!res.ok) return null;
+    const d=await res.json();
+    paitoCache[market]=d.data||[];
+    return paitoCache[market];
+  } catch(e){ return null; }
+}
+
+async function onMarketChange(){
+  const mkt=document.getElementById("f-market").value;
+  document.getElementById("paito-mkt-name").textContent=MKT[mkt]||mkt;
+  const data=await fetchMarketData(mkt);
+  renderPaitoMini(data||[]);
+}
+
+function renderPaitoMini(data){
+  const pills=document.getElementById("paito-pills");
+  if(!data.length){ pills.innerHTML=`<div style="font-size:11px;color:#94a3b8;padding:4px">Belum ada data untuk pasaran ini.</div>`; return; }
+  pills.innerHTML=data.slice(0,15).map(r=>`
+    <div class="paito-pill">
+      ${r.result4||'–'}
+      <span>${r.hari||''} ${(r.tanggal||'').slice(5)||''}</span>
+    </div>`).join("");
+}
+
+function togglePaitoMini(){
+  const mini=document.getElementById("paito-mini");
+  const btn=document.getElementById("paito-toggle-btn");
+  mini.classList.toggle("show");
+  btn.textContent=mini.classList.contains("show")?"▲ Tutup":"▼ Buka";
+}
+
+function setDataStatus(color,info,sub){
+  const dot=document.getElementById("data-dot");
+  dot.className='dot '+(color==="green"?"dot-green":color==="red"?"dot-red":"dot-yellow");
+  document.getElementById("data-info-txt").textContent=info;
+  document.getElementById("data-sub-txt").textContent=sub;
+}
+function setTopSub(txt){ document.getElementById("data-status-txt").textContent=txt; }
+
+// ════════════════════════════════════════════════════════════════
+// RNG & GENERATORS
+// ════════════════════════════════════════════════════════════════
+function sRand(seed){ let s=seed; return ()=>{ s=(s*1664525+1013904223)&0xffffffff; return (s>>>0)/0x100000000; }; }
+function hStr(str){ let h=0; for(let i=0;i<str.length;i++) h=(Math.imul(31,h)+str.charCodeAt(i))|0; return Math.abs(h); }
+function genKey(r){ const c="ABCDEFGHJKLMNPQRSTUVWXYZ0123456789"; return Array.from({length:8},()=>c[Math.floor(r()*c.length)]).join(""); }
+function genFormula(r){
+  const cols=["A","C","K","E","J"],ops=["+","-","*"],mults=[1,2,3,4,5];
+  const n=2+Math.floor(r()*3),parts=[];
+  for(let i=0;i<n;i++){const m=mults[Math.floor(r()*mults.length)],c=cols[Math.floor(r()*cols.length)];parts.push(m===1?c:`${m}${c}`);}
+  let f=parts[0]; for(let i=1;i<parts.length;i++) f+=ops[Math.floor(r()*ops.length)]+parts[i];
+  if(r()>.5) f+=`[${MISTIK[Math.floor(r()*MISTIK.length)]}]`;
+  return f;
+}
+function genPred(r,fcol,digit){
+  const d=parseInt(digit);
+  if(["a","c","k","e"].includes(fcol)){const n=1+Math.floor(r()*4);return Array.from({length:10},(_,i)=>i).sort(()=>r()-.5).slice(0,n).join(" ");}
+  if(fcol==="j"){return Array.from({length:1+Math.floor(r()*3)},()=>Math.floor(r()*18)).join(" ");}
+  const seen=new Set(),nums=[];
+  while(nums.length<d){const s=String(Math.floor(r()*100)).padStart(2,"0");if(!seen.has(s)){seen.add(s);nums.push(s);}}
+  return nums.join(" ");
+}
+
+// ════════════════════════════════════════════════════════════════
+// SCAN
+// ════════════════════════════════════════════════════════════════
+function startScan(){
+  if(scanning) return;
+  scanning=true;
+  const btn=document.getElementById("btn-scan");
+  btn.classList.add("stop"); btn.textContent="⏹ SCANNING...";
+
+  const market=document.getElementById("f-market").value;
+  const fcol=document.getElementById("f-fcol").value;
+  const digit=document.getElementById("f-digit").value;
+  const limit=document.getElementById("f-limit").value;
+  const patah=document.getElementById("f-patah").value;
+  const maxrms=parseInt(document.getElementById("f-maxrms").value);
+  const day=document.getElementById("f-day").value;
+
+  const pw=document.getElementById("prog-wrap"),pb=document.getElementById("prog-bar"),pt=document.getElementById("prog-txt");
+  pw.style.display="block"; pb.style.width="0"; pt.textContent=MSGS[0];
+
+  // Gunakan data paito sebagai seed tambahan jika tersedia
+  const paitoSeed=paitoCache[market]?.length ? paitoCache[market].slice(0,5).map(d=>d.result4).join('') : '';
+  const rand=sRand(hStr(`${market}${fcol}${digit}${limit}${patah}${day}${paitoSeed}${Date.now()}`));
+  let step=0;
+  scanTick=setInterval(()=>{
+    step++;
+    pb.style.width=Math.min((step/10)*100,95)+"%";
+    pt.textContent=MSGS[Math.min(step-1,MSGS.length-1)];
+    if(step>=10){
+      clearInterval(scanTick);
+      results=[];
+      for(let i=0;i<maxrms;i++){
+        const key=genKey(rand);
+        const formula=genFormula(rand);
+        const pred=genPred(rand,fcol,digit);
+        const pjg=Math.max(4,parseInt(limit)-Math.floor(rand()*5));
+        results.push({no:i+1,key,formula,pred,pjg,market,fcol,digit,limit,patah,day,status:"aktif",savedAt:Date.now()});
+      }
+      pb.style.width="100%"; pt.textContent=`✓ DITEMUKAN ${results.length} RUMUS`;
+      setTimeout(()=>{renderResults();stopScan();},600);
+    }
+  },300);
+}
+function stopScan(){
+  scanning=false; clearInterval(scanTick);
+  const btn=document.getElementById("btn-scan");
+  btn.classList.remove("stop"); btn.textContent="🔍 MULAI SCAN";
+}
+function renderResults(){
+  const area=document.getElementById("result-area"); area.style.display="block";
+  document.getElementById("result-body").innerHTML=results.map((r,i)=>`
+    <tr>
+      <td><span class="badge">${r.no}</span></td>
+      <td class="td-formula">${r.formula}</td>
+      <td class="td-pred">${r.pred}</td>
+      <td class="td-pjg">${r.pjg}</td>
+      <td>
+        <button class="aksi-btn" style="background:#dbeafe;color:#1d4ed8" onclick="saveOne(${i})" title="Simpan">💾</button>
+        <button class="aksi-btn" style="background:#fef3c7;color:#b45309" onclick="saveOne(${i})" title="Tambah">➕</button>
+      </td>
+    </tr>`).join("");
+}
+function clearResult(){ results=[]; document.getElementById("result-area").style.display="none"; }
+
+// ════════════════════════════════════════════════════════════════
+// COLLECTION
+// ════════════════════════════════════════════════════════════════
+function saveCol(){ localStorage.setItem("sk_col",JSON.stringify(collection)); }
+function saveOne(idx){ const r=results[idx]; if(!r||collection.find(c=>c.key===r.key)) return; collection.unshift({...r}); saveCol(); renderCol(); updateFilters(); }
+function addAll(){ let n=0; results.forEach(r=>{if(!collection.find(c=>c.key===r.key)){collection.unshift({...r});n++;}}); if(!n)return; saveCol(); renderCol(); updateFilters(); }
+
+function renderCol(){
+  const fm=document.getElementById("fm").value, ft=document.getElementById("ft").value;
+  const filtered=collection.filter(r=>(fm==="ALL"||r.market===fm)&&(ft==="ALL"||r.fcol===ft));
+  document.getElementById("col-count").textContent=`${collection.length} rumus`;
+  const tbody=document.getElementById("col-body");
+  if(!filtered.length){ tbody.innerHTML=`<tr><td colspan="5" class="empty">Belum ada rumus yang disimpan.</td></tr>`; return; }
+  tbody.innerHTML=filtered.map((r,i)=>`
+    <tr>
+      <td><input type="checkbox" class="ck" data-key="${r.key}" onchange="updateActions()"></td>
+      <td><span class="badge">${i+1}</span></td>
+      <td class="td-pred" style="font-size:11px">${r.pred} <span style="font-size:9px;color:#94a3b8">[${MKT[r.market]||r.market}]</span></td>
+      <td class="td-pjg">${r.pjg}</td>
+      <td><span class="${r.status==="aktif"?"s-aktif":"s-patah"}">${r.status}</span></td>
+    </tr>`).join("");
+  updateActions();
+}
+function toggleAll(cb){ document.querySelectorAll(".ck").forEach(c=>c.checked=cb.checked); updateActions(); }
+function updateActions(){
+  const n=document.querySelectorAll(".ck:checked").length;
+  ["btn-del","btn-trek","btn-rekap","btn-bank"].forEach(id=>document.getElementById(id).disabled=n===0);
+  selectedKeys=new Set([...document.querySelectorAll(".ck:checked")].map(c=>c.dataset.key));
+}
+function getSelected(){ return collection.filter(r=>selectedKeys.has(r.key)); }
+function updateFilters(){
+  const ms=[...new Set(collection.map(r=>r.market))], ts=[...new Set(collection.map(r=>r.fcol))];
+  const fm=document.getElementById("fm"), curM=fm.value;
+  fm.innerHTML=`<option value="ALL">Semua Pasaran</option>`+ms.map(m=>`<option value="${m}"${m===curM?" selected":""}>${MKT[m]||m}</option>`).join("");
+  const ft=document.getElementById("ft"), curT=ft.value;
+  ft.innerHTML=`<option value="ALL">Semua Tipe</option>`+ts.map(t=>`<option value="${t}"${t===curT?" selected":""}>${t.toUpperCase()}</option>`).join("");
+}
+function refreshAll(){ collection=collection.map(r=>({...r,status:sRand(hStr(r.key+Date.now()))()>.3?"aktif":"patah"})); saveCol(); renderCol(); }
+function askDelete(){ const n=selectedKeys.size; if(!n)return; document.getElementById("modal-msg").textContent=`Anda akan menghapus ${n} rumus dari koleksi.`; document.getElementById("modal").classList.add("show"); }
+function doDelete(){ collection=collection.filter(r=>!selectedKeys.has(r.key)); selectedKeys.clear(); saveCol(); renderCol(); updateFilters(); closeModal(); }
+function closeModal(){ document.getElementById("modal").classList.remove("show"); }
+
+// ════════════════════════════════════════════════════════════════
+// TREK & REKAP
+// ════════════════════════════════════════════════════════════════
+function doTrek(){
+  const sel=getSelected(); if(!sel.length)return;
+  let log=`╔══════════════════════════════════════╗\n║  TREK GABUNGAN – ${sel.length} RUMUS\n╚══════════════════════════════════════╝\n\n`;
+  sel.forEach((r,i)=>{ log+=`▶ RMS ${i+1} | KEY: ${r.key}\n  PASARAN  : ${MKT[r.market]||r.market}\n  FORMULA  : ${r.formula}\n  TARGET   : ${r.fcol.toUpperCase()} | ${r.digit}D\n  PREDIKSI : ${r.pred}\n  PANJANG  : ${r.pjg}\n  HARI     : ${r.day||"SEMUA"}\n${"─".repeat(40)}\n`; });
+  const freq={};
+  sel.flatMap(r=>r.pred.split(" ")).forEach(n=>freq[n]=(freq[n]||0)+1);
+  const sorted=Object.entries(freq).sort((a,b)=>b[1]-a[1]);
+  log+=`\n📊 GABUNGAN ANGKA:\n`;
+  sorted.forEach(([n,c])=>{ log+=`  ${String(n).padStart(4)} │ ${"█".repeat(c)} (${c}x)\n`; });
+  const hot=sorted.filter(([,c])=>c>=2).map(([n])=>n);
+  if(hot.length) log+=`\n⭐ ANGKA HOT: ${hot.join(" ")}\n`;
+  setTerm(log,`[TREK ${sel.length}RMS]`);
+}
+function doRekap(){
+  const sel=getSelected(); if(!sel.length)return;
+  let log=`╔══════════════════════════════════════╗\n║  REKAP RUMUS – ${sel.length} RUMUS\n╚══════════════════════════════════════╝\n\nNo │ KEY      │ FORMULA                │ PRED         │ PJG │ PASARAN\n${"═".repeat(80)}\n`;
+  sel.forEach((r,i)=>{ log+=` ${String(i+1).padStart(2)} │ ${r.key.padEnd(8)} │ ${r.formula.substring(0,20).padEnd(22)} │ ${r.pred.substring(0,12).padEnd(12)} │ ${String(r.pjg).padStart(3)} │ ${(MKT[r.market]||r.market).substring(0,12)}\n`; });
+  log+=`${"═".repeat(80)}\nDigenerate: ${new Date().toLocaleString("id-ID")}`;
+  setTerm(log,`[REKAP ${sel.length}RMS]`);
+}
+function setTerm(log,code){ document.getElementById("term-log").textContent=log; document.getElementById("term-code").textContent=code; document.querySelector(".terminal").scrollIntoView({behavior:"smooth"}); }
+function copyTerm(){
+  navigator.clipboard.writeText(document.getElementById("term-log").textContent).catch(()=>{});
+  const btn=document.getElementById("btn-copy"); btn.textContent="✓ COPIED"; setTimeout(()=>btn.textContent="📋 COPY",2000);
+}
+
+// ════════════════════════════════════════════════════════════════
+// SAVE / EXPORT
+// ════════════════════════════════════════════════════════════════
+function doSave(){
+  const sel=getSelected(); if(!sel.length)return;
+  let txt=`╔══════════════════════════════════════╗\n║   BANK RUMUS – SCANNER PRO 2026      ║\n║   Export: ${new Date().toLocaleString("id-ID").padEnd(26)}║\n╚══════════════════════════════════════╝\n\n`;
+  sel.forEach((r,i)=>{ txt+=`[${i+1}] KEY     : ${r.key}\n    PASARAN : ${MKT[r.market]||r.market}\n    FORMULA : ${r.formula}\n    TARGET  : ${r.fcol.toUpperCase()} | ${r.digit}D\n    PREDIKSI: ${r.pred}\n    PANJANG : ${r.pjg} baris\n    HARI    : ${r.day||"SEMUA"}\n    STATUS  : ${(r.status||"aktif").toUpperCase()}\n${"─".repeat(42)}\n`; });
+  txt+=`\nTotal: ${sel.length} rumus.`;
+  const blob=new Blob([txt],{type:"text/plain"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`bank_rumus_${Date.now()}.txt`;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(a.href);
+}
+
+// ════════════════════════════════════════════════════════════════
+// DARK MODE
+// ════════════════════════════════════════════════════════════════
+function toggleDark(){
+  document.body.classList.toggle("dark");
+  const d=document.body.classList.contains("dark");
+  document.getElementById("dark-btn").textContent=d?"☀️":"🌙";
+  localStorage.setItem("sk_dark",d?"1":"0");
+}
+
+// ════════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════════
+(function(){
+  if(localStorage.getItem("sk_dark")==="1"){ document.body.classList.add("dark"); document.getElementById("dark-btn").textContent="☀️"; }
+  updateFilters(); renderCol();
+  initProxy();
+})();
+</script>
+</body>
+</html>
