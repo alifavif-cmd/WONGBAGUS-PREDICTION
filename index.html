@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🤖 Angkanet – Smart Paito Warna Engine 2026</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+/* ══════════════════════════════════════════
+   THEME VARIABLES
+══════════════════════════════════════════ */
+:root {
+  --primary:#1e40af;--accent:#3b82f6;--accent2:#7c3aed;
+  --green:#16a34a;--red:#dc2626;--yellow:#ca8a04;--orange:#ea580c;
+  --bg:#f0f4f8;--card:#ffffff;--card2:#f8fafc;--border:#e2e8f0;
+  --text:#1e293b;--muted:#64748b;--inp:#fff;
+  --btn:linear-gradient(135deg,#1e40af,#3b82f6);--btn-t:#fff;
+  --sh:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+  --sh-h:0 4px 24px rgba(59,130,246,.18);
+}
+.gold {
+  --primary:#b8860b;--accent:#f5c842;--accent2:#d4af37;
+  --bg:#070600;--card:#0d0a00;--card2:#120f00;--border:rgba(197,163,39,.3);
+  --text:#fde68a;--muted:#b49b4c;--inp:rgba(0,0,0,.5);
+  --btn:linear-gradient(135deg,#d4af37,#f5c842,#b8860b);--btn-t:#050505;
+  --sh:0 4px 24px rgba(0,0,0,.6);--sh-h:0 4px 24px rgba(245,200,66,.2);
+}
+/* ══════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════ */
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;font-size:14px}
+a{color:var(--accent);text-decoration:none}
+/* ══════════════════════════════════════════
+   TOP BAR
+══════════════════════════════════════════ */
+#topbar{
+  background:var(--card);border-bottom:1px solid var(--border);
+  padding:9px 16px;display:flex;align-items:center;gap:10px;
+  position:sticky;top:0;z-index:300;box-shadow:var(--sh);
+  flex-wrap:wrap;
+}
+.logo{font-size:.95rem;font-weight:900;background:var(--btn);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo small{display:block;font-size:.6rem;color:var(--muted);-webkit-text-fill-color:var(--muted);font-weight:600}
+.theme-sw{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-left:auto;gap:0}
+.theme-sw button{padding:4px 10px;font-size:.68rem;font-weight:800;border:none;cursor:pointer;background:var(--inp);color:var(--muted);font-family:inherit;letter-spacing:.5px;transition:.2s}
+.theme-sw button.on{background:var(--btn);color:var(--btn-t)}
+/* ══════════════════════════════════════════
+   TAB NAV
+══════════════════════════════════════════ */
+#tabnav{
+  background:var(--card);border-bottom:2px solid var(--border);
+  display:flex;overflow-x:auto;gap:0;white-space:nowrap;
+}
+.tab{
+  padding:10px 16px;font-size:.72rem;font-weight:700;cursor:pointer;
+  border:none;background:transparent;color:var(--muted);font-family:inherit;
+  border-bottom:2px solid transparent;margin-bottom:-2px;
+  transition:.2s;white-space:nowrap;
+}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+/* ══════════════════════════════════════════
+   PANELS
+══════════════════════════════════════════ */
+.panel{display:none;padding:14px;max-width:900px;margin:0 auto}
+.panel.on{display:block}
+/* ══════════════════════════════════════════
+   CARD
+══════════════════════════════════════════ */
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:16px;margin-bottom:14px;box-shadow:var(--sh);
+}
+.card-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.card-icon{
+  width:36px;height:36px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:1.1rem;background:var(--btn);flex-shrink:0;
+}
+.card-title{font-size:.9rem;font-weight:900;color:var(--primary)}
+.card-sub{font-size:.65rem;color:var(--muted);margin-top:1px}
+.shimmer{
+  height:3px;border-radius:2px;margin-bottom:14px;
+  background:linear-gradient(90deg,var(--card2) 25%,var(--border) 50%,var(--card2) 75%);
+  background-size:400% 100%;animation:shim 1.5s infinite;
+}
+@keyframes shim{0%{background-position:200% 0}100%{background-position:-200% 0}}
+/* ══════════════════════════════════════════
+   FORM ELEMENTS
+══════════════════════════════════════════ */
+.fl{font-size:.62rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px}
+select,input[type=text],input[type=number],textarea{
+  width:100%;padding:7px 10px;border:1px solid var(--border);border-radius:8px;
+  background:var(--inp);color:var(--text);font-size:.78rem;font-family:inherit;
+  outline:none;transition:border-color .2s;
+}
+select:focus,input:focus,textarea:focus{border-color:var(--accent)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}
+@media(max-width:520px){.grid4{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}}
+.fc{display:flex;flex-direction:column;gap:3px}
+/* ══════════════════════════════════════════
+   BUTTONS
+══════════════════════════════════════════ */
+.btn{
+  padding:8px 16px;border-radius:8px;border:none;cursor:pointer;
+  font-weight:700;font-size:.75rem;font-family:inherit;transition:.2s;
+  display:inline-flex;align-items:center;gap:5px;
+}
+.btn-primary{background:var(--btn);color:var(--btn-t);box-shadow:0 4px 12px rgba(59,130,246,.25)}
+.btn-primary:hover{opacity:.9;box-shadow:var(--sh-h)}
+.btn-primary:active{transform:scale(.98)}
+.btn-sm{padding:5px 10px;font-size:.7rem;border-radius:6px}
+.btn-ghost{background:var(--card2);color:var(--text);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-danger{background:rgba(220,38,38,.1);color:var(--red);border:1px solid rgba(220,38,38,.2)}
+.btn-danger:hover{background:rgba(220,38,38,.2)}
+.btn-full{width:100%;justify-content:center}
+.btn-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+/* ══════════════════════════════════════════
+   PAITO WARNA COLORS
+══════════════════════════════════════════ */
+.dc{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:5px;font-weight:900;font-size:.82rem;flex-shrink:0}
+.c0{background:#dc2626;color:#fff}.c1{background:#2563eb;color:#fff}.c2{background:#16a34a;color:#fff}
+.c3{background:#9333ea;color:#fff}.c4{background:#ea580c;color:#fff}.c5{background:#0891b2;color:#fff}
+.c6{background:#ca8a04;color:#fff}.c7{background:#db2777;color:#fff}.c8{background:#4f46e5;color:#fff}
+.c9{background:#059669;color:#fff}
+/* ══════════════════════════════════════════
+   PAITO TABLE
+══════════════════════════════════════════ */
+.tbl-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border)}
+.ptbl{border-collapse:collapse;width:100%;min-width:560px;background:var(--card)}
+.ptbl th{
+  background:var(--card2);padding:7px 6px;font-size:.62rem;text-transform:uppercase;
+  letter-spacing:.5px;color:var(--muted);border-bottom:1px solid var(--border);text-align:center;
+}
+.ptbl td{padding:5px 5px;border-bottom:1px solid var(--border);font-size:.78rem;text-align:center;color:var(--text)}
+.ptbl tr:hover td{background:var(--card2)}
+/* ══════════════════════════════════════════
+   EXCEL TABLE (Kumpulan Rumus style)
+══════════════════════════════════════════ */
+#TheTable,#ro-table{border-collapse:collapse;width:100%;min-width:540px;font-size:.74rem}
+#TheTable th,#TheTable td,#ro-table th,#ro-table td{padding:5px 7px;border:1px solid #ccc;text-align:center}
+#TheTable th,#ro-table th{background:#dbeafe;color:#1e40af;font-weight:800;font-size:.62rem;text-transform:uppercase}
+.gold #TheTable th,.gold #ro-table th{background:#3a2d00;color:#f5c842}
+.gold #TheTable td,.gold #ro-table td{background:#0d0a00;color:#a8a8a8;border-color:rgba(197,163,39,.3)}
+td.heading{background:#dbeafe!important;color:#1e40af!important;font-weight:800}
+.gold td.heading{background:#3a2d00!important;color:#f5c842!important}
+td.bawah{background:#eff6ff!important;color:#1e3a8a!important;font-weight:700}
+.gold td.bawah{background:#1a1200!important;color:#f5c842!important}
+td.hasilk{background:#fef08a!important;color:#78350f!important;font-weight:900}
+td.hasile{background:#bbf7d0!important;color:#14532d!important;font-weight:900}
+td.hasil{color:var(--text)}
+/* ══════════════════════════════════════════
+   SCANNER TABLE
+══════════════════════════════════════════ */
+#sk-result-body td,#sk-result-body th{padding:6px 8px;border:1px solid var(--border);font-size:.74rem}
+.kr-th{background:var(--card2);color:var(--muted);font-size:.62rem;text-transform:uppercase;letter-spacing:.5px;font-weight:800;padding:7px 8px;border:1px solid var(--border);text-align:center}
+/* ══════════════════════════════════════════
+   STATUS / PROGRESS
+══════════════════════════════════════════ */
+.srow{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.sdot{width:8px;height:8px;border-radius:50%;background:var(--muted);flex-shrink:0}
+.sdot.ok{background:#10b981;box-shadow:0 0 8px #10b981;animation:blink 2s infinite}
+.sdot.loading{background:#f59e0b;animation:blink .5s infinite}
+.sdot.err{background:#ef4444}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.stext{font-size:.72rem;color:var(--muted);flex:1}
+.pbar{height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:10px}
+.pfill{height:100%;background:var(--btn);width:0;transition:width .3s}
+/* ══════════════════════════════════════════
+   STATS ROW
+══════════════════════════════════════════ */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:12px}
+.sbox{text-align:center;background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:8px 4px}
+.sval{font-size:1.1rem;font-weight:900;color:var(--accent)}
+.slbl{font-size:.55rem;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+/* ══════════════════════════════════════════
+   LOG BOX
+══════════════════════════════════════════ */
+#log-box{
+  background:var(--card2);border:1px solid var(--border);border-radius:8px;
+  height:100px;overflow-y:auto;padding:7px;font-size:.65rem;font-family:monospace;line-height:1.7;
+}
+.log-ok{color:#10b981}.log-err{color:#ef4444}.log-warn{color:#f59e0b}.log-info{color:#3b82f6}
+/* ══════════════════════════════════════════
+   BOT AI PATTERNS
+══════════════════════════════════════════ */
+.pcard{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 12px;margin-bottom:6px;
+  background:var(--card2);border:1px solid var(--border);border-radius:10px;
+}
+.pnum{font-size:.68rem;font-weight:900;color:var(--muted);width:24px;flex-shrink:0}
+.pdigs{display:flex;gap:3px;flex-wrap:wrap;flex:1}
+.dbox{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:24px;padding:4px 6px;border-radius:6px;
+  background:var(--card);border:1px solid var(--border);
+  font-weight:900;color:var(--primary);font-size:.9rem;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
+}
+.gold .dbox{color:var(--accent)}
+.tar-btn{
+  padding:4px 10px;border-radius:6px;border:none;cursor:pointer;
+  background:var(--btn);color:var(--btn-t);font-size:.65rem;font-weight:800;
+  white-space:nowrap;font-family:inherit;transition:.2s;flex-shrink:0;
+}
+/* ══════════════════════════════════════════
+   INFO BOX
+══════════════════════════════════════════ */
+.info-box{
+  background:rgba(234,179,8,.05);border:1px solid rgba(234,179,8,.3);
+  border-radius:9px;padding:8px 12px;font-size:.72rem;color:var(--yellow);
+  margin-bottom:10px;
+}
+/* ══════════════════════════════════════════
+   SCAN PROGRESS BAR
+══════════════════════════════════════════ */
+#sk-progress-container{
+  display:none;margin-top:10px;background:var(--card2);
+  border:1px solid var(--border);border-radius:8px;padding:10px;
+}
+#sk-progress-wrap{background:var(--border);border-radius:4px;height:8px;overflow:hidden}
+#sk-progress-bar{height:100%;background:var(--btn);width:0;transition:width .3s;border-radius:4px}
+#sk-progress-text{font-size:.65rem;color:var(--muted);margin-top:4px;display:block;text-align:center}
+/* ══════════════════════════════════════════
+   RESULT BANNER
+══════════════════════════════════════════ */
+.banner{
+  background:var(--card2);border:1px solid var(--border);border-radius:12px;
+  padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.b-lbl{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.b-val{font-size:.88rem;font-weight:900;color:var(--text)}
+.b-digs{display:flex;gap:3px}
+/* ══════════════════════════════════════════
+   PASARAN QUICK TABS
+══════════════════════════════════════════ */
+.ptabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.ptab{padding:4px 10px;border-radius:14px;font-size:.7rem;font-weight:700;cursor:pointer;border:1px solid var(--border);background:var(--card2);color:var(--muted);transition:.2s}
+.ptab.on{background:var(--btn);color:var(--btn-t);border-color:transparent}
+/* ══════════════════════════════════════════
+   TOOLBAR
+══════════════════════════════════════════ */
+.toolbar{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:10px;
+  background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:8px 10px}
+.toolbar input[type=text]{flex:1;min-width:120px;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.75rem}
+/* ══════════════════════════════════════════
+   KOLEKSI RUMUS
+══════════════════════════════════════════ */
+.koleksi-head{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.koleksi-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;
+  background:var(--card2);font-size:.72rem;gap:8px;flex-wrap:wrap
+}
+/* ══════════════════════════════════════════
+   MISC
+══════════════════════════════════════════ */
+hr.sep{border:none;border-top:1px solid var(--border);margin:12px 0}
+.badge{
+  display:inline-block;padding:2px 6px;border-radius:4px;
+  font-size:.58rem;font-weight:900;vertical-align:middle;letter-spacing:.3px;
+}
+.badge-hot{background:#ef4444;color:#fff}
+.badge-new{background:#7c3aed;color:#fff}
+.pag{display:flex;align-items:center;gap:6px;margin-top:10px;flex-wrap:wrap}
+.pag-btn{padding:4px 10px;border-radius:6px;border:1px solid var(--border);cursor:pointer;font-size:.7rem;font-weight:700;background:var(--card2);color:var(--text);font-family:inherit}
+.pag-btn:disabled{opacity:.4;cursor:default}
+.pag-info{font-size:.7rem;color:var(--muted)}
+.tgl{width:36px;height:18px;background:var(--border);border-radius:9px;cursor:pointer;position:relative;transition:background .2s;flex-shrink:0}
+.tgl.on{background:var(--accent)}
+.tgl::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s}
+.tgl.on::after{transform:translateX(18px)}
+.tgl-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.tgl-lbl{font-size:.72rem;color:var(--text)}
+footer{text-align:center;padding:20px 14px;font-size:.62rem;color:var(--muted);border-top:1px solid var(--border);margin-top:20px}
+/* ══════════════════════════════════════════
+   SCANNER CHIP RESULT
+══════════════════════════════════════════ */
+.sc-formula{font-family:monospace;font-size:.7rem;color:var(--accent2);font-weight:700}
+.sc-pred{display:flex;gap:3px;flex-wrap:wrap}
+.sc-pred span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px;font-weight:900;font-size:.8rem;background:var(--card2);border:1px solid var(--border);color:var(--primary)}
+.gold .sc-pred span{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ TOP BAR ═══════════ -->
+<div id="topbar">
+  <div>
+    <div class="logo">🤖 Angkanet – Smart Paito Warna Engine
+      <small>✦ Bot AI · Rumus · Scanner · Data Live ✦</small>
+    </div>
+  </div>
+  <div class="srow" style="margin:0;flex-shrink:0">
+    <div class="sdot" id="dot"></div>
+    <span class="stext" id="top-status">Siap</span>
+  </div>
+  <div class="theme-sw">
+    <button class="on" id="th-light" onclick="setTheme('light')">LIGHT</button>
+    <button id="th-gold" onclick="setTheme('gold')">GOLD</button>
+  </div>
+</div>
+
+<!-- ═══════════ TABS ═══════════ -->
+<div id="tabnav">
+  <button class="tab on" data-tab="t-bot">🤖 Bot AI Paito</button>
+  <button class="tab" data-tab="t-rumus">📋 Kumpulan Rumus</button>
+  <button class="tab" data-tab="t-scanner">🔍 Scanner Pro <span class="badge badge-hot">HOT</span></button>
+  <button class="tab" data-tab="t-otomatis">⚡ Rumus Otomatis</button>
+  <button class="tab" data-tab="t-paito">🎨 Paito Warna</button>
+  <button class="tab" data-tab="t-data">📊 Data Pengeluaran</button>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+  TAB 1 – BOT AI PAITO (Smart Paito Warna Engine)
+════════════════════════════════════════════════════ -->
+<div class="panel on" id="t-bot">
+  <div class="card">
+    <div class="shimmer"></div>
+    <div class="card-head">
+      <div class="card-icon">🤖</div>
+      <div><div class="card-title">Bot AI Paito</div><div class="card-sub">✦ Analisis Pola Tarikan Otomatis ✦</div></div>
+    </div>
+
+    <div class="grid2" style="margin-bottom:8px">
+      <div class="fc"><label class="fl">Pasaran</label><select id="b-pasaran"></select></div>
+      <div class="fc"><label class="fl">Mode</label>
+        <select id="b-mode">
+          <option value="2d" selected>2D</option><option value="3d">3D</option>
+          <option value="4d">4D</option><option value="1d">1D</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid4">
+      <div class="fc"><label class="fl">Jarak</label>
+        <select id="b-jarak"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option></select>
+      </div>
+      <div class="fc"><label class="fl">Miring</label>
+        <select id="b-jump"><option value="0" selected>0</option><option value="1">+1</option><option value="2">+2</option><option value="3">+3</option><option value="-1">-1</option><option value="-2">-2</option><option value="-3">-3</option></select>
+      </div>
+      <div class="fc"><label class="fl">Tipe</label>
+        <select id="b-tipe"><option value="polos" selected>POLOS</option><option value="mistik">+MISTIK</option></select>
+      </div>
+      <div class="fc"><label class="fl">Key</label>
+        <select id="b-key"><option value="2" selected>2</option><option value="3">3</option></select>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-full" id="btn-analisa">▶ ANALISA</button>
+    <hr class="sep">
+    <div class="info-box" id="b-info">✦ Pilih pasaran & parameter, lalu tekan <strong>▶ ANALISA</strong>.</div>
+    <div id="b-results"></div>
+    <div id="b-filter" style="display:none;margin-bottom:10px">
+      <div style="display:flex;align-items:center;gap:10px;background:var(--card2);border-radius:8px;padding:8px 12px;flex-wrap:wrap">
+        <span style="font-size:.62rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px">GARIS TARIKAN:</span>
+        <label style="display:flex;align-items:center;gap:4px;font-size:.72rem;font-weight:700;cursor:pointer"><input type="radio" name="garis" value="on" checked> ON</label>
+        <label style="display:flex;align-items:center;gap:4px;font-size:.72rem;font-weight:700;cursor:pointer"><input type="radio" name="garis" value="off"> OFF</label>
+      </div>
+    </div>
+    <div id="b-dl" style="display:none;text-align:center">
+      <button class="btn btn-ghost btn-sm" id="btn-dl">
+        <i class="bi bi-download"></i> UNDUH TABEL
+      </button>
+    </div>
+    <div class="shimmer" style="margin-top:14px;margin-bottom:0"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+  TAB 2 – KUMPULAN RUMUS
+════════════════════════════════════════════════════ -->
+<div class="panel" id="t-rumus">
+  <div class="card">
+    <div class="shimmer"></div>
+    <div class="card-head">
+      <div class="card-icon">📋</div>
+      <div><div class="card-title">Kumpulan Rumus Togel Lengkap <span class="badge badge-hot">HOT</span></div><div class="card-sub">AI Variant · Shio · Single · Rumus Harian</div></div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <button class="btn btn-primary btn-sm" id="btn-rk-load">▶ LOAD</button>
+      <button class="btn btn-ghost btn-sm" id="btn-rk-reset">↺ RESET</button>
+      <button class="btn btn-ghost btn-sm" id="btn-rk-save">↑ SAVE</button>
+      <span id="rk-msg" style="font-size:.68rem;color:var(--muted)"></span>
+    </div>
+
+    <!-- Form -->
+    <div style="display:grid;grid-template-columns:80px 1fr 1fr 90px;gap:8px;margin-bottom:10px">
+      <div class="fc"><label class="fl">Jumlah Data</label><input type="number" id="rk-num" min="1" max="110" value="15"></div>
+      <div class="fc"><label class="fl">Pasaran</label><select id="rk-market"></select></div>
+      <div class="fc"><label class="fl">Rumus</label>
+        <select id="rk-rumus">
+          <optgroup label="AI VARIANT">
+            <option value="cb">colok bebas (cb)</option>
+            <option value="ai3d">ai 3d</option>
+            <option value="ai" selected>ai 2d belakang</option>
+            <option value="ait">ai 2d tengah</option>
+            <option value="aid">ai 2d depan</option>
+          </optgroup>
+          <optgroup label="SHIO VARIANT">
+            <option value="s">shio</option><option value="st">shio tengah</option><option value="sd">shio depan</option>
+          </optgroup>
+          <optgroup label="SINGLE VARIANT">
+            <option value="a">as (a)</option><option value="c">cop (c)</option>
+            <option value="k">kepala (k)</option><option value="e">ekor (e)</option>
+            <option value="ke">kepala ekor (ke)</option>
+            <option value="j">jumlah 2d</option><option value="jt">jumlah tengah</option><option value="jd">jumlah depan</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="fc"><label class="fl">Mode</label>
+        <select id="rk-mode"><option value="manual">Manual</option><option value="otomatis">Otomatis</option></select>
+      </div>
+    </div>
+    <!-- Column selectors -->
+    <div class="grid4" id="rk-cols">
+      <div class="fc"><label class="fl">Kolom A</label><select id="rk-acc1"></select></div>
+      <div class="fc"><label class="fl">Kolom B</label><select id="rk-acc2"></select></div>
+      <div class="fc"><label class="fl">Kolom C</label><select id="rk-acc3"></select></div>
+      <div class="fc"><label class="fl">Kolom D</label><select id="rk-acc4"></select></div>
+    </div>
+
+    <!-- Table -->
+    <div class="tbl-wrap"><table id="TheTable"><thead><tr id="rk-thead"></tr></thead><tbody id="rk-tbody"><tr><td colspan="13" style="padding:16px;color:var(--muted)">Tekan ▶ LOAD untuk memuat data.</td></tr></tbody><tfoot><tr id="rk-tfoot"></tr></tfoot></table></div>
+
+    <!-- Pagination -->
+    <div class="pag">
+      <button class="pag-btn" id="rk-prev">« Prev</button>
+      <span class="pag-info" id="rk-pag">–</span>
+      <button class="pag-btn" id="rk-next">Next »</button>
+    </div>
+
+    <!-- Copy -->
+    <div style="margin-top:10px">
+      <div class="btn-row">
+        <button class="btn btn-ghost btn-sm" id="btn-rk-copy"><i class="bi bi-code-slash"></i> COPY CODE</button>
+        <span id="rk-copy-msg" style="font-size:.68rem;color:var(--muted)"></span>
+      </div>
+      <textarea id="rk-output" style="font-size:.65rem;font-family:monospace;height:50px;resize:vertical" readonly></textarea>
+    </div>
+    <div class="shimmer" style="margin-top:14px;margin-bottom:0"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+  TAB 3 – SCANNER ANGKANET PRO
+════════════════════════════════════════════════════ -->
+<div class="panel" id="t-scanner">
+  <div class="card">
+    <div class="shimmer"></div>
+    <div class="card-head">
+      <div class="card-icon">🔍</div>
+      <div><div class="card-title">Scanner Angkanet Pro <span class="badge badge-hot">HOT</span></div><div class="card-sub">Pencarian Rumus Algoritma v2.0 (Synchronized)</div></div>
+      <a href="https://159.65.133.131/bank-rumus/" target="_blank" class="btn btn-ghost btn-sm" style="margin-left:auto"><i class="bi bi-bank"></i> Ke Bank Rumus ➔</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+      <div class="fc"><label class="fl">Pasaran</label><select id="sk-market" style="border-color:#ca8a04;color:#78350f;font-weight:800"></select></div>
+      <div class="fc"><label class="fl">Target</label>
+        <select id="sk-fcol" style="border-color:#16a34a;color:#14532d;font-weight:800">
+          <optgroup label="AI VARIANT">
+            <option value="cb">colok bebas (cb)</option>
+            <option value="ai">ai 2d belakang</option>
+            <option value="aid">ai 2d depan</option>
+          </optgroup>
+          <optgroup label="SINGLE VARIANT">
+            <option value="a">as (a)</option><option value="c">cop (c)</option>
+            <option value="k">kepala (k)</option><option value="e" selected>ekor (e)</option>
+            <option value="j">jumlah 2d</option>
+          </optgroup>
+          <optgroup label="DIGIT TARGET">
+            <option value="d1">1 DIGIT</option><option value="d2">2 DIGIT</option><option value="d3">3 DIGIT</option>
+            <option value="d4">4 DIGIT</option><option value="d5">5 DIGIT</option><option value="d6">6 DIGIT</option>
+            <option value="d7">7 DIGIT</option><option value="d8">8 DIGIT</option><option value="d9">9 DIGIT</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:7px;margin-bottom:8px">
+      <div class="fc"><label class="fl">Digit</label>
+        <select id="sk-digit">
+          <option value="1">1 DIGIT</option><option value="2" selected>2 DIGIT</option><option value="3">3 DIGIT</option>
+          <option value="4">4 DIGIT</option><option value="5">5 DIGIT</option>
+          <option value="6">6 DIGIT</option><option value="7">7 DIGIT</option>
+          <option value="8">8 DIGIT</option><option value="9">9 DIGIT</option>
+        </select>
+      </div>
+      <div class="fc"><label class="fl">Limit Baris</label>
+        <select id="sk-limit">
+          <option value="4">4 BRS</option><option value="5">5 BRS</option><option value="6">6 BRS</option>
+          <option value="7">7 BRS</option><option value="8">8 BRS</option><option value="9">9 BRS</option>
+          <option value="10">10 BRS</option><option value="11">11 BRS</option><option value="12">12 BRS</option>
+          <option value="13">13 BRS</option><option value="14">14 BRS</option><option value="15">15 BRS</option>
+          <option value="16">16 BRS</option><option value="17">17 BRS</option><option value="18">18 BRS</option>
+          <option value="19">19 BRS</option><option value="20" selected>20 BRS</option><option value="21">21 BRS</option>
+          <option value="22">22 BRS</option><option value="23">23 BRS</option><option value="24">24 BRS</option>
+          <option value="25">25 BRS</option>
+        </select>
+      </div>
+      <div class="fc"><label class="fl">Maks Patah</label>
+        <select id="sk-patah" style="color:#dc2626;font-weight:800;border-color:#fca5a5">
+          <option value="0" selected>0 ZNK</option><option value="1">1 ZNK</option><option value="2">2 ZNK</option>
+          <option value="3">3 ZNK</option><option value="4">4 ZNK</option><option value="5">5 ZNK</option>
+          <option value="6">6 ZNK</option><option value="7">7 ZNK</option><option value="8">8 ZNK</option>
+          <option value="9">9 ZNK</option><option value="10">10 ZNK</option>
+        </select>
+      </div>
+      <div class="fc"><label class="fl">Target Rumus</label>
+        <select id="sk-maxrumus" style="color:#7c3aed;font-weight:800;border-color:#c4b5fd">
+          <option value="1">CARI 1 RMS</option><option value="2">CARI 2 RMS</option><option value="3">CARI 3 RMS</option>
+          <option value="4">CARI 4 RMS</option><option value="5" selected>CARI 5 RMS</option>
+          <option value="6">CARI 6 RMS</option><option value="7">CARI 7 RMS</option>
+          <option value="8">CARI 8 RMS</option><option value="9">CARI 9 RMS</option><option value="10">CARI 10 RMS</option>
+        </select>
+      </div>
+    </div>
+    <!-- Filter Hari -->
+    <div style="margin-bottom:10px">
+      <select id="sk-day" style="border-color:#ca8a04;color:#78350f;font-weight:800">
+        <option value="">Semua Hari</option>
+        <option value="Senin">SENIN</option><option value="Selasa">SELASA</option>
+        <option value="Rabu">RABU</option><option value="Kamis">KAMIS</option>
+        <option value="Jumat">JUMAT</option><option value="Sabtu">SABTU</option>
+        <option value="Minggu">MINGGU</option>
+      </select>
+    </div>
+    <button class="btn btn-primary btn-full" id="btn-scan">
+      <i class="bi bi-radar"></i> SCAN
+    </button>
+
+    <!-- Progress -->
+    <div id="sk-progress-container">
+      <div id="sk-progress-wrap"><div id="sk-progress-bar"></div></div>
+      <span id="sk-progress-text">MENYIAPKAN RADAR...</span>
+    </div>
+
+    <!-- Result table -->
+    <div id="sk-result-container" style="margin-top:14px">
+      <div class="tbl-wrap">
+        <table style="border-collapse:collapse;width:100%;min-width:500px">
+          <thead>
+            <tr>
+              <th class="kr-th">RMS</th>
+              <th class="kr-th">FORMULA</th>
+              <th class="kr-th">PRED</th>
+              <th class="kr-th">PJG</th>
+              <th class="kr-th">AKSI</th>
+            </tr>
+          </thead>
+          <tbody id="sk-result-body">
+            <tr><td colspan="5" style="padding:16px;text-align:center;color:var(--muted)">Tabel Kosong. Tekan SCAN untuk mulai pencarian rumus.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="btn-row" style="margin-top:8px">
+        <button class="btn btn-ghost btn-sm" id="btn-sk-clear"><i class="bi bi-x-circle"></i> Clear</button>
+        <button class="btn btn-ghost btn-sm" id="btn-sk-koleksi"><i class="bi bi-bookmark-plus"></i> Masukkan Ke Koleksi</button>
+      </div>
+    </div>
+
+    <!-- Koleksi Rumus -->
+    <hr class="sep">
+    <div class="koleksi-head">
+      <i class="bi bi-bookmark-star-fill" style="color:#1e40af;font-size:16px"></i>
+      <strong style="font-size:.82rem;color:var(--primary)">KOLEKSI RUMUS SAYA</strong>
+      <span id="sk-saved-count" style="font-size:.68rem;color:var(--muted)">0 rumus</span>
+    </div>
+    <div id="sk-koleksi-list">
+      <div style="padding:12px;text-align:center;font-size:.72rem;color:var(--muted)">Belum ada koleksi. Scan lalu simpan rumus.</div>
+    </div>
+    <div class="shimmer" style="margin-top:14px;margin-bottom:0"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+  TAB 4 – RUMUS OTOMATIS
+════════════════════════════════════════════════════ -->
+<div class="panel" id="t-otomatis">
+  <div class="card">
+    <div class="shimmer"></div>
+    <div class="card-head">
+      <div class="card-icon">⚡</div>
+      <div><div class="card-title">Rumus Otomatis – Sekali Klik JP</div><div class="card-sub">Scan Angka Otomatis · Prediksi Akurat</div></div>
+    </div>
+
+    <!-- Toolbar: paste kode -->
+    <div class="toolbar">
+      <input type="text" id="ro-kode" placeholder="🔍 Paste kode rumus..." style="flex:1;border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.75rem">
+      <button class="btn btn-primary btn-sm" id="btn-ro-load">⚡ LOAD</button>
+      <button class="btn btn-ghost btn-sm" id="btn-ro-reset">↺ RESET</button>
+      <button class="btn btn-ghost btn-sm" id="btn-ro-save">↑ SAVE</button>
+      <span id="ro-msg" style="font-size:.68rem;color:var(--muted)"></span>
+    </div>
+
+    <!-- Form -->
+    <div class="grid2" style="margin-bottom:8px">
+      <div class="fc"><label class="fl">Market</label><select id="ro-market"></select></div>
+      <div class="fc"><label class="fl">Hari</label>
+        <select id="ro-hari">
+          <option value="">Harian</option>
+          <option value="Senin">Senin</option><option value="Selasa">Selasa</option>
+          <option value="Rabu">Rabu</option><option value="Kamis">Kamis</option>
+          <option value="Jumat">Jumat</option><option value="Sabtu">Sabtu</option>
+          <option value="Minggu">Minggu</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid2" style="margin-bottom:8px">
+      <div class="fc"><label class="fl">Baris</label><input type="number" id="ro-baris" min="4" max="50" value="15"></div>
+      <div class="fc"><label class="fl">Rumus</label>
+        <select id="ro-rumus">
+          <optgroup label="AI VARIANT">
+            <option value="ai" selected>ai 2d belakang</option>
+            <option value="ai3d">ai 3d</option><option value="ait">ai 2d tengah</option><option value="aid">ai 2d depan</option>
+            <option value="cb">colok bebas (cb)</option>
+          </optgroup>
+          <optgroup label="SHIO VARIANT"><option value="s">shio</option><option value="st">shio tengah</option><option value="sd">shio depan</option></optgroup>
+          <optgroup label="SINGLE VARIANT">
+            <option value="a">as (a)</option><option value="c">cop (c)</option>
+            <option value="k">kepala (k)</option><option value="e">ekor (e)</option>
+            <option value="ke">kepala ekor (ke)</option>
+            <option value="j">jumlah 2d</option><option value="jt">jumlah tengah</option><option value="jd">jumlah depan</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+    <div class="grid2" style="margin-bottom:10px">
+      <div class="fc"><label class="fl">Patah (ZNK)</label>
+        <select id="ro-patah" style="color:#dc2626;font-weight:800;border-color:#fca5a5">
+          <option value="0">0 ZNK</option><option value="1" selected>1 ZNK</option>
+          <option value="2">2 ZNK</option><option value="3">3 ZNK</option><option value="4">4 ZNK</option>
+        </select>
+      </div>
+      <div class="fc"><label class="fl">Referensi</label>
+        <select id="ro-ref">
+          <option value="0" selected>Sembunyi Referensi</option>
+          <option value="1">Tampilkan Referensi</option>
+        </select>
+      </div>
+    </div>
+    <!-- Column selectors -->
+    <div class="grid4" style="margin-bottom:10px">
+      <div class="fc"><label class="fl">Kolom 1</label><select id="ro-acc1"></select></div>
+      <div class="fc"><label class="fl">Kolom 2</label><select id="ro-acc2"></select></div>
+      <div class="fc"><label class="fl">Kolom 3</label><select id="ro-acc3"></select></div>
+      <div class="fc"><label class="fl">Kolom 4</label><select id="ro-acc4"></select></div>
+    </div>
+    <button class="btn btn-primary btn-full" id="btn-ro-proses">⚡ PROSES OTOMATIS</button>
+
+    <!-- Result Table -->
+    <div class="tbl-wrap" style="margin-top:12px"><table id="ro-table"><thead><tr id="ro-thead"></tr></thead><tbody id="ro-tbody"><tr><td colspan="13" style="padding:16px;color:var(--muted)">Tekan ⚡ PROSES OTOMATIS.</td></tr></tbody><tfoot><tr id="ro-tfoot"></tr></tfoot></table></div>
+
+    <div class="pag">
+      <button class="pag-btn" id="ro-prev">« Prev</button>
+      <span class="pag-info" id="ro-pag">–</span>
+      <button class="pag-btn" id="ro-next">Next »</button>
+    </div>
+
+    <div style="margin-top:10px">
+      <div class="btn-row">
+        <button class="btn btn-ghost btn-sm" id="btn-ro-copy"><i class="bi bi-code-slash"></i> COPY CODE</button>
+        <span id="ro-copy-msg" style="font-size:.68rem;color:var(--muted)"></span>
+      </div>
+      <textarea id="ro-output" style="font-size:.65rem;font-family:monospace;height:50px;resize:vertical" readonly></textarea>
+    </div>
+    <div class="shimmer" style="margin-top:14px;margin-bottom:0"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+  TAB 5 – PAITO WARNA
+════════════════════════════════════════════════════ -->
+<div class="panel" id="t-paito">
+  <div class="card">
+    <div class="shimmer"></div>
+    <!-- Banner -->
+    <div class="banner">
+      <div><div class="b-lbl">Pasaran</div><div class="b-val" id="pt-pas">–</div></div>
+      <div><div class="b-lbl">Result Terakhir</div><div class="b-digs" id="pt-res">–</div></div>
+      <div><div class="b-lbl">Periode</div><div class="b-val" id="pt-per">–</div></div>
+      <div style="margin-left:auto"><div class="b-lbl">Tanggal</div><div class="b-val" id="pt-tgl">–</div></div>
+    </div>
+    <!-- Quick tabs -->
+    <div class="ptabs" id="pt-tabs">
+      <div class="ptab on" data-p="hk">HK 🇭🇰</div>
+      <div class="ptab" data-p="sgp">SGP 🇸🇬</div>
+      <div class="ptab" data-p="syd">SDY 🦘</div>
+      <div class="ptab" data-p="mcu">MACAU</div>
+      <div class="ptab" data-p="twn">TAIWAN</div>
+      <div class="ptab" data-p="jpn">JAPAN</div>
+      <div class="ptab" data-p="hkg">HK POOLS</div>
+      <div class="ptab" data-p="sgp">SINGAPORE</div>
+    </div>
+    <!-- Controls -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px">
+      <input type="text" id="pt-cari" placeholder="Cari angka…" style="width:120px">
+      <select id="pt-rpp" style="width:80px"><option value="20">20</option><option value="50" selected>50</option><option value="100">100</option><option value="0">Semua</option></select>
+      <button class="pag-btn" id="pt-prev">◀</button>
+      <span class="pag-info" id="pt-pag">–</span>
+      <button class="pag-btn" id="pt-next">▶</button>
+      <button class="btn btn-primary btn-sm" id="pt-fetch" style="margin-left:auto">⟳ FETCH</button>
+      <button class="btn btn-ghost btn-sm" id="pt-csv">💾 CSV</button>
+    </div>
+    <div class="tgl-row" style="max-width:220px;margin-bottom:10px">
+      <span class="tgl-lbl">Paito Warna</span><div class="tgl on" id="tgl-color"></div>
+    </div>
+    <div class="tbl-wrap">
+      <table class="ptbl">
+        <thead>
+          <tr><th>No</th><th>Tanggal</th><th>Hari</th><th>Pasaran</th><th>Periode</th><th>As</th><th>Kop</th><th>Kepala</th><th>Ekor</th><th>3D</th><th>2D</th></tr>
+        </thead>
+        <tbody id="pt-tbody"><tr><td colspan="11" style="padding:24px;color:var(--muted)">Pilih pasaran atau tekan ⟳ FETCH.</td></tr></tbody>
+      </table>
+    </div>
+    <div class="shimmer" style="margin-top:14px;margin-bottom:0"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+  TAB 6 – DATA PENGELUARAN
+════════════════════════════════════════════════════ -->
+<div class="panel" id="t-data">
+  <div class="card">
+    <div class="shimmer"></div>
+    <div class="card-head">
+      <div class="card-icon">📊</div>
+      <div><div class="card-title">Portal Data Pengeluaran Togel</div><div class="card-sub">Data Valid · Update Otomatis · 100+ Pasaran</div></div>
+    </div>
+    <!-- Status & fetch -->
+    <div class="srow"><div class="sdot" id="d-dot"></div><span class="stext" id="d-status">Siap</span></div>
+    <div class="pbar"><div class="pfill" id="d-prog"></div></div>
+    <div class="stats">
+      <div class="sbox"><div class="sval" id="d-total">0</div><div class="slbl">Total</div></div>
+      <div class="sbox"><div class="sval" id="d-fetch">0</div><div class="slbl">Fetch</div></div>
+      <div class="sbox"><div class="sval" id="d-speed">–</div><div class="slbl">Speed</div></div>
+      <div class="sbox"><div class="sval" id="d-next">–</div><div class="slbl">Next</div></div>
+      <div class="sbox"><div class="sval" id="d-proxy">–</div><div class="slbl">Proxy</div></div>
+    </div>
+    <div class="grid2" style="margin-bottom:8px">
+      <div class="fc"><label class="fl">Pasaran</label><select id="d-pasaran"></select></div>
+      <div class="fc"><label class="fl">Limit</label>
+        <select id="d-limit"><option value="30">30 data</option><option value="50">50 data</option><option value="100" selected>100 data</option><option value="200">200 data</option></select>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btn-d-fetch">⟳ FETCH DATA</button>
+      <button class="btn btn-ghost" id="btn-d-auto">⏱ AUTO</button>
+      <button class="btn btn-danger" id="btn-d-stop">■ STOP</button>
+    </div>
+    <div id="log-box" style="margin-bottom:10px"></div>
+    <!-- Paste JSON -->
+    <hr class="sep">
+    <label class="fl" style="margin-bottom:5px">PASTE JSON MANUAL</label>
+    <textarea id="paste-json" style="font-size:.65rem;font-family:monospace;height:70px;resize:vertical;margin-bottom:6px" placeholder='{"data":[{"date":"2026-05-14","result":"1234","periode":"001"},...]}'></textarea>
+    <div class="btn-row">
+      <button class="btn btn-ghost btn-sm" id="btn-parse">📥 Parse</button>
+      <button class="btn btn-ghost btn-sm" id="btn-clear-log">🗑 Log</button>
+      <button class="btn btn-ghost btn-sm" id="btn-export">💾 CSV</button>
+    </div>
+    <!-- Data table -->
+    <div class="tbl-wrap" style="margin-top:10px">
+      <table class="ptbl">
+        <thead><tr><th>No</th><th>Tanggal</th><th>Hari</th><th>Pasaran</th><th>Periode</th><th>4D</th><th>3D</th><th>2D</th><th>As</th><th>Kop</th><th>Kepala</th><th>Ekor</th></tr></thead>
+        <tbody id="d-tbody"><tr><td colspan="12" style="padding:24px;color:var(--muted)">Pilih pasaran & tekan ⟳ FETCH DATA.</td></tr></tbody>
+      </table>
+    </div>
+    <div class="pag">
+      <button class="pag-btn" id="d-prev">◀</button>
+      <span class="pag-info" id="d-pag">–</span>
+      <button class="pag-btn" id="d-next">▶</button>
+    </div>
+    <!-- Auto toggle -->
+    <hr class="sep">
+    <div class="tgl-row"><span class="tgl-lbl">Auto Fetch</span><div class="tgl" id="tgl-auto"></div></div>
+    <div class="tgl-row"><span class="tgl-lbl">Notifikasi Baru</span><div class="tgl on" id="tgl-notif"></div></div>
+    <div class="fc" style="max-width:120px"><label class="fl">Interval (detik)</label><input type="number" id="cfg-interval" value="30" min="10" max="3600"></div>
+    <div class="shimmer" style="margin-top:14px;margin-bottom:0"></div>
+  </div>
+</div>
+
+<footer>
+  <strong>Angkanet – Smart Paito Warna Engine 2026</strong> &nbsp;|&nbsp;
+  Data resmi: <a href="https://159.65.133.131/" target="_blank">Angkanet.com</a> &nbsp;|&nbsp;
+  <a href="https://alifavif-cmd.github.io/WONGBAGUS-PREDICTION/" target="_blank">WONGBAGUS-PREDICTION</a>
+</footer>
+
+<script>
+'use strict';
+// ═══════════════════════════════════════════════════
+// GLOBAL STATE
+// ═══════════════════════════════════════════════════
+let G = {
+  data: [],        // normalized paito rows
+  fdata: [],       // filtered
+  activePas: 'hk',
+  ptPage: 1, dPage: 1,
+  rkPage: 1, rkRows: [],
+  roPage: 1, roRows: [],
+  fetchCount: 0,
+  autoOn: false,
+  autoTimer: null, cdTimer: null, cdVal: 0,
+  colorOn: true,
+  notifOn: true,
+  koleksi: JSON.parse(localStorage.getItem('koleksi')||'[]'),
+};
+
+const $  = id => document.getElementById(id);
+const DAYS = ['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
+const HARI = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+
+// ═══════════════════════════════════════════════════
+// PASARAN OPTIONS (shared)
+// ═══════════════════════════════════════════════════
+const PASARAN = [
+  {v:'hk',  l:'⭐ HONGKONG LOTTERY'},{v:'hkg', l:'⭐ HONGKONG POOLS'},{v:'hklt',l:'⭐ HONGKONG LOTTO'},
+  {v:'sgp', l:'⭐ SGP | SINGAPORE'}, {v:'syd', l:'⭐ SYDNEYPOOLS'},   {v:'sdlt',l:'⭐ SYDNEY LOTTO'},
+  {v:'twn', l:'⭐ TAIWAN'},           {v:'jpn', l:'⭐ JAPAN'},         {v:'chn', l:'⭐ CHINAPOOLS'},
+  {v:'cmb2',l:'⭐ MAGNUM CAMBODIA'}, {v:'be',  l:'⭐ BULLSEYE'},       {v:'ncd', l:'⭐ NORTH CAROLINA DAY'},
+  {v:'clf', l:'CALIFORNIA'},         {v:'cd',  l:'CONNECTICUT DAY'},   {v:'cn',  l:'CONNECTICUT NIGHT'},
+  {v:'fle', l:'FLORIDA EVENING'},    {v:'flm', l:'FLORIDA MIDDAY'},    {v:'gge', l:'GEORGIA EVENING'},
+  {v:'ggm', l:'GEORGIA MIDDAY'},     {v:'ggn', l:'GEORGIA NIGHT'},     {v:'gm5', l:'GERMANY PLUS5'},
+  {v:'ine', l:'ILLINOIS EVENING'},   {v:'inm', l:'ILLINOIS MIDDAY'},   {v:'ide', l:'INDIANA EVENING'},
+  {v:'idm', l:'INDIANA MIDDAY'},     {v:'kye', l:'KENTUCKY EVENING'},  {v:'kym', l:'KENTUCKY MIDDAY'},
+  {v:'mle', l:'MARYLAND EVENING'},   {v:'mlm', l:'MARYLAND MIDDAY'},   {v:'mge', l:'MICHIGAN EVENING'},
+  {v:'mgm', l:'MICHIGAN MIDDAY'},    {v:'mse', l:'MISSOURI EVENING'},  {v:'msm', l:'MISSOURI MIDDAY'},
+  {v:'mqn', l:'MOROCCO QUATRO 03:00'},{v:'mqd',l:'MOROCCO QUATRO 18:00'},{v:'mqe',l:'MOROCCO QUATRO 21:00'},
+  {v:'mqmn',l:'MOROCCO QUATRO 23:59'},{v:'nje',l:'NEW JERSEY EVENING'},{v:'njm', l:'NEW JERSEY MIDDAY'},
+  {v:'nye', l:'NEW YORK EVENING'},   {v:'nym', l:'NEW YORK MIDDAY'},   {v:'nce', l:'NORTH CAROLINA EVENING'},
+  {v:'og1', l:'OREGON 04:00 WIB'},   {v:'og4', l:'OREGON 07:00 WIB'}, {v:'og7', l:'OREGON 10:00 WIB'},
+  {v:'og10',l:'OREGON 13:00 WIB'},   {v:'ps',  l:'PCSO'},              {v:'te',  l:'TENNESSE EVENING'},
+  {v:'tmd', l:'TENNESSE MIDDAY'},    {v:'tm',  l:'TENNESSE MORNING'},  {v:'txd', l:'TEXAS DAY'},
+  {v:'txe', l:'TEXAS EVENING'},      {v:'txm', l:'TEXAS MORNING'},     {v:'txn', l:'TEXAS NIGHT'},
+  {v:'mce', l:'TOTO MACAU 00'},      {v:'mca', l:'TOTO MACAU 13'},     {v:'mcb', l:'TOTO MACAU 16'},
+  {v:'mcc', l:'TOTO MACAU 19'},      {v:'mcd', l:'TOTO MACAU 22'},     {v:'mcf', l:'TOTO MACAU 23'},
+  {v:'mcu', l:'MACAU'},              {v:'vd',  l:'VIRGINIA DAY'},       {v:'vn',  l:'VIRGINIA NIGHT'},
+  {v:'wdce',l:'WASHINGTON DC EVENING'},{v:'wdcm',l:'WASHINGTON DC MIDDAY'},
+  {v:'mil', l:'MILAN'},              {v:'os',  l:'OSAKA'},              {v:'sl',  l:'SEOUL'},
+  {v:'tky', l:'TOKYO'},              {v:'sp',  l:'SAO PAULO'},          {v:'ist', l:'ISTANBUL'},
+];
+
+function buildPasaranSelect(el, selectedVal='hk') {
+  el.innerHTML = PASARAN.map(p=>`<option value="${p.v}"${p.v===selectedVal?' selected':''}>${p.l}</option>`).join('');
+}
+['b-pasaran','rk-market','sk-market','ro-market','d-pasaran'].forEach(id=>{
+  const el=$(id); if(el) buildPasaranSelect(el);
+});
+
+// ═══════════════════════════════════════════════════
+// COLUMN SELECTOR OPTIONS (Kumpulan Rumus / Rumus Otomatis)
+// ═══════════════════════════════════════════════════
+function buildColOpts() {
+  const pfx = ['A','C','K','E','J'];
+  let html = '<option value="">-</option>';
+  pfx.forEach(p=>{
+    for(let i=1;i<=9;i++){
+      html+=`<option value="${p}${i}"${p==='A'&&i===1?' selected':''}>${p}${i}</option>`;
+    }
+  });
+  return html;
+}
+['rk-acc1','rk-acc2','rk-acc3','rk-acc4','ro-acc1','ro-acc2','ro-acc3','ro-acc4'].forEach(id=>{
+  const el=$(id); if(el) el.innerHTML=buildColOpts();
+});
+
+// ═══════════════════════════════════════════════════
+// TABS
+// ═══════════════════════════════════════════════════
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+    $(t.dataset.tab).classList.add('on');
+  });
+});
+
+// ═══════════════════════════════════════════════════
+// THEME
+// ═══════════════════════════════════════════════════
+function setTheme(t) {
+  document.body.className = t==='gold'?'gold':'';
+  $('th-light').classList.toggle('on',t==='light');
+  $('th-gold').classList.toggle('on',t==='gold');
+}
+window.setTheme = setTheme;
+
+// ═══════════════════════════════════════════════════
+// DATA FETCH – 5-proxy chain
+// ═══════════════════════════════════════════════════
+const PROXIES = [
+  u=>`https://corsproxy.io/?${encodeURIComponent(u)}`,
+  u=>`https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+  u=>`https://thingproxy.freeboard.io/fetch/${u}`,
+  u=>`https://cors-anywhere.herokuapp.com/${u}`,
+  u=>`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
+];
+function apiUrl(pasaran, limit=100) {
+  return `https://159.65.133.131/wp-json/angkanet/v1/paito?pasaran=${pasaran}&limit=${limit}`;
+}
+async function fetchWithProxy(srcUrl) {
+  for(let i=0;i<PROXIES.length;i++){
+    const url = PROXIES[i](srcUrl);
+    logMsg(`🔄 [${i+1}/${PROXIES.length}] ${['corsproxy','allorigins','thingproxy','cors-anywhere','codetabs'][i]}…`,'info');
+    try {
+      const ctrl = new AbortController();
+      const t = setTimeout(()=>ctrl.abort(),9000);
+      const r = await fetch(url,{signal:ctrl.signal,headers:{Accept:'application/json,text/plain,*/*'}});
+      clearTimeout(t);
+      if(!r.ok) throw new Error(`HTTP ${r.status}`);
+      const txt = await r.text();
+      let json;
+      try{json=JSON.parse(txt)}catch{throw new Error('Bukan JSON')}
+      if(json&&typeof json.contents==='string'){try{json=JSON.parse(json.contents)}catch{}}
+      return {json, proxy:['corsproxy','allorigins','thingproxy','cors-anywhere','codetabs'][i]};
+    }catch(e){logMsg(`⚠ Gagal: ${e.message}`,'warn');}
+  }
+  throw new Error('Semua proxy gagal');
+}
+function extractRows(json) {
+  for(const k of ['data','results','rows','items','list','keluaran','paito']){
+    if(json[k]&&Array.isArray(json[k])) return json[k];
+  }
+  if(Array.isArray(json)) return json;
+  return [];
+}
+function normalize(row,idx,pas) {
+  const d = (row.date||row.tanggal||row.tgl||'').toString();
+  const r = (row.result||row.angka||row.draw||row.keluaran||'').toString().replace(/\D/g,'').padStart(4,'0').slice(-4);
+  const p = (row.periode||row.no||row.period||String(idx+1)).toString();
+  let dt=null; try{dt=new Date(d);if(isNaN(dt))dt=null;}catch{}
+  return {
+    no:idx+1,dateRaw:d,dt,
+    dateStr:dt?dt.toLocaleDateString('id-ID'):d,
+    day:dt?DAYS[dt.getDay()]:'–',
+    hari:dt?HARI[dt.getDay()]:'',
+    pasaran:pas,
+    periode:p,result:r,
+    as:r[0]||'?',kop:r[1]||'?',kep:r[2]||'?',ekor:r[3]||'?',
+    r3d:r.slice(1),r2d:r.slice(2),
+  };
+}
+async function doFetch(pas, limit=100) {
+  const src = apiUrl(pas||G.activePas, limit);
+  setTopStatus('loading','Mengambil data…');
+  setDot('d-dot','loading'); setDStatus('Mengambil data…');
+  setProgress('d-prog',10);
+  const t0 = performance.now();
+  try{
+    const {json,proxy} = await fetchWithProxy(src);
+    const rows = extractRows(json);
+    if(!rows.length) throw new Error('Data kosong');
+    const ms = Math.round(performance.now()-t0);
+    G.data = rows.map((r,i)=>normalize(r,i,pas||G.activePas));
+    G.fetchCount++;
+    setProgress('d-prog',100); setTimeout(()=>setProgress('d-prog',0),700);
+    $('d-total').textContent=G.data.length;
+    $('d-fetch').textContent=G.fetchCount;
+    $('d-speed').textContent=ms+'ms';
+    $('d-proxy').textContent=proxy.slice(0,8);
+    setTopStatus('ok',`✅ ${G.data.length} data (${ms}ms)`);
+    setDot('d-dot','ok'); setDStatus(`✅ [${proxy}] ${G.data.length} baris, ${ms}ms`);
+    logMsg(`✅ [${proxy}] ${G.data.length} baris, ${ms}ms`,'ok');
+    if(G.notifOn&&G.fetchCount>1&&G.data[0]) logMsg(`🆕 ${G.data[0].result} | ${G.data[0].dateStr}`,'info');
+    updatePtBanner(); applyPtFilter(); renderDataTable();
+  }catch(e){
+    setProgress('d-prog',0);
+    setTopStatus('err','❌ Gagal: '+e.message);
+    setDot('d-dot','err'); setDStatus('❌ Gagal: '+e.message);
+    logMsg('❌ Semua proxy gagal: '+e.message,'err');
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// AUTO FETCH
+// ═══════════════════════════════════════════════════
+function startAuto(){
+  stopAuto(); G.autoOn=true;
+  $('tgl-auto').className='tgl on';
+  $('btn-d-auto').textContent='⏱ AUTO ON';
+  schedNext(); logMsg('⏱ Auto-fetch aktif','info');
+}
+function stopAuto(){
+  G.autoOn=false;
+  if(G.autoTimer){clearTimeout(G.autoTimer);G.autoTimer=null;}
+  if(G.cdTimer){clearInterval(G.cdTimer);G.cdTimer=null;}
+  $('tgl-auto').className='tgl';
+  $('btn-d-auto').textContent='⏱ AUTO';
+  $('d-next').textContent='–';
+}
+function schedNext(){
+  const sec=Math.max(10,parseInt($('cfg-interval').value)||30);
+  G.cdVal=sec;
+  if(G.cdTimer) clearInterval(G.cdTimer);
+  G.cdTimer=setInterval(()=>{
+    G.cdVal--;$('d-next').textContent=G.cdVal+'s';
+    if(G.cdVal<=0){clearInterval(G.cdTimer);if(G.autoOn) doFetch().then(()=>schedNext());}
+  },1000);
+}
+
+// ═══════════════════════════════════════════════════
+// PAITO WARNA RENDERER
+// ═══════════════════════════════════════════════════
+function dc(d){
+  const n=parseInt(d,10);
+  if(isNaN(n)) return`<span class="dc" style="background:var(--card2);color:var(--muted)">?</span>`;
+  return`<span class="dc c${n}">${n}</span>`;
+}
+function dcs(str){return str.split('').map(dc).join('')}
+function applyPtFilter(){
+  const q=$('pt-cari').value.trim().toLowerCase();
+  G.fdata = q ? G.data.filter(r=>r.result.includes(q)||r.dateStr.toLowerCase().includes(q)||r.periode.includes(q)) : G.data;
+  G.ptPage=1; renderPtTable();
+}
+function renderPtTable(){
+  const rpp=parseInt($('pt-rpp').value)||G.fdata.length;
+  const total=G.fdata.length;
+  const pages=rpp>0?Math.ceil(total/rpp):1;
+  G.ptPage=Math.min(G.ptPage,pages||1);
+  const s=rpp>0?(G.ptPage-1)*rpp:0;
+  const slice=rpp>0?G.fdata.slice(s,s+rpp):G.fdata;
+  $('pt-pag').textContent=`${G.ptPage}/${pages||1} (${total})`;
+  const col=G.colorOn;
+  $('pt-tbody').innerHTML=slice.map(r=>`<tr>
+    <td style="color:var(--muted);font-size:.62rem">${r.no}</td>
+    <td style="font-size:.72rem;white-space:nowrap">${r.dateStr}</td>
+    <td style="font-size:.65rem;color:var(--muted)">${r.day}</td>
+    <td style="font-size:.65rem;font-weight:800;color:var(--accent)">${r.pasaran.toUpperCase()}</td>
+    <td style="font-size:.62rem;color:var(--muted)">${r.periode}</td>
+    <td>${col?dc(r.as):r.as}</td><td>${col?dc(r.kop):r.kop}</td>
+    <td>${col?dc(r.kep):r.kep}</td><td>${col?dc(r.ekor):r.ekor}</td>
+    <td style="white-space:nowrap">${col?dcs(r.r3d):r.r3d}</td>
+    <td style="white-space:nowrap">${col?dcs(r.r2d):r.r2d}</td>
+  </tr>`).join('');
+}
+function updatePtBanner(){
+  if(!G.data.length) return;
+  const r=G.data[0];
+  $('pt-pas').textContent=r.pasaran.toUpperCase();
+  $('pt-res').innerHTML=dcs(r.result);
+  $('pt-per').textContent=r.periode||'–';
+  $('pt-tgl').textContent=r.dateStr+' · '+r.day;
+}
+function renderDataTable(){
+  const rpp=50; const total=G.data.length;
+  const pages=Math.ceil(total/rpp)||1;
+  G.dPage=Math.min(G.dPage,pages);
+  const s=(G.dPage-1)*rpp;
+  const slice=G.data.slice(s,s+rpp);
+  $('d-pag').textContent=`${G.dPage}/${pages} (${total})`;
+  $('d-tbody').innerHTML=slice.map(r=>`<tr>
+    <td style="color:var(--muted);font-size:.62rem">${r.no}</td>
+    <td style="font-size:.72rem;white-space:nowrap">${r.dateStr}</td>
+    <td style="font-size:.65rem">${r.day}</td>
+    <td style="font-size:.65rem;font-weight:800;color:var(--accent)">${r.pasaran.toUpperCase()}</td>
+    <td style="font-size:.62rem;color:var(--muted)">${r.periode}</td>
+    <td style="font-weight:900;font-size:.9rem;letter-spacing:1px">${r.result}</td>
+    <td>${r.r3d}</td><td>${r.r2d}</td><td>${r.as}</td><td>${r.kop}</td><td>${r.kep}</td><td>${r.ekor}</td>
+  </tr>`).join('');
+}
+
+// ═══════════════════════════════════════════════════
+// BOT AI PAITO – Pattern Detection
+// ═══════════════════════════════════════════════════
+function getVal(row,mode){
+  switch(mode){
+    case '1d': return row.ekor;
+    case '2d': return row.r2d;
+    case '3d': return row.r3d;
+    case '4d': return row.result;
+    default:   return row.r2d;
+  }
+}
+function analyzeBot(data,mode,jarak,jump,tipe,key){
+  if(data.length<jarak+2) return[];
+  const patterns=[], seen=new Set();
+  for(let i=0;i<data.length-jarak-1;i++){
+    const ref  = getVal(data[i+jarak+1],mode);
+    const curr = getVal(data[i+jarak],mode);
+    const next = getVal(data[i],mode);
+    if(!ref||!curr||!next) continue;
+    const sig=`${ref}-${curr}`;
+    if(seen.has(sig)) continue;
+    seen.add(sig);
+    // Build digit candidates with rotation
+    const sz=mode==='4d'?4:mode==='3d'?3:mode==='1d'?1:2;
+    const candidates=[];
+    for(let d=0;d<=9;d++){
+      if(sz===1){
+        candidates.push(((parseInt(curr)+d+jump+100)%10).toString());
+      } else if(sz===2){
+        const kep=((parseInt(curr[0])+d+jump+100)%10);
+        const ek =((parseInt(curr[1])+d+100)%10);
+        candidates.push(kep.toString()+ek.toString());
+      } else if(sz===3){
+        const a=((parseInt(curr[0])+d+jump+100)%10);
+        const b=((parseInt(curr[1])+d+100)%10);
+        const c=((parseInt(curr[2])+d+100)%10);
+        candidates.push(a.toString()+b.toString()+c.toString());
+      } else {
+        const n=curr.split('').map((x,idx)=>((parseInt(x)+(idx===0?jump:0)+d+100)%10).toString()).join('');
+        candidates.push(n);
+      }
+    }
+    // Take only key candidates
+    const topK = parseInt(key)||2;
+    patterns.push({
+      sig, seed:curr, next,
+      cands: candidates.slice(0,Math.min(topK,3)),
+      extra: tipe==='mistik'?getMistik(curr,sz):[]
+    });
+    if(patterns.length>=6) break;
+  }
+  return patterns;
+}
+function getMistik(seed,sz){
+  if(sz===2){
+    const k=(parseInt(seed[0])+5)%10, e=(parseInt(seed[1])+5)%10;
+    return[k.toString()+e.toString()];
+  }
+  return[(parseInt(seed.slice(-1))+5)%10+''];
+}
+function renderBotResults(patterns,mode){
+  const res=$('b-results');
+  if(!patterns.length){
+    res.innerHTML=`<div class="info-box">⚠ Pola tidak ditemukan. Coba kurangi Jarak atau ambil lebih banyak data.</div>`;
+    $('b-filter').style.display='none'; $('b-dl').style.display='none'; return;
+  }
+  $('b-info').innerHTML=`✦ Ditemukan <strong>${patterns.length} Pola</strong> untuk <strong>${mode.toUpperCase()}</strong>`;
+  $('b-filter').style.display='block'; $('b-dl').style.display='block';
+  res.innerHTML=patterns.map((p,i)=>{
+    const allC=[...p.cands,...p.extra];
+    const digsHtml=allC.map(c=>`<div style="display:flex;gap:2px">${c.split('').map(d=>`<span class="dbox">${d}</span>`).join('')}</div>`).join('<span style="margin:0 4px;color:var(--muted)">·</span>');
+    return`<div class="pcard">
+      <span class="pnum"><span style="opacity:.5;font-size:.58rem">#</span>${i+1}</span>
+      <div class="pdigs" style="flex:1">${digsHtml}</div>
+      <button class="tar-btn" data-i="${i}">▶ TARIKAN</button>
+    </div>`;
+  }).join('');
+  res.querySelectorAll('.tar-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const p=patterns[parseInt(btn.dataset.i)];
+      const txt=p.cands.concat(p.extra).join('·');
+      $('rk-output').value=txt;
+      $('ro-output').value=txt;
+      document.querySelectorAll('.tab')[1].click();
+      $('rk-msg').textContent=`Tarikan #${parseInt(btn.dataset.i)+1}: ${txt}`;
+    });
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// KUMPULAN RUMUS – AI Formula (ExcelTable style)
+// ═══════════════════════════════════════════════════
+function computeRekap(data,rumus,num){
+  const n=Math.min(num,data.length);
+  return Array.from({length:n},(_, i)=>{
+    const r=data[i];
+    const next=data[i-1]; // more recent
+    // Seed for the 10-column rotation
+    let seed;
+    switch(rumus){
+      case 'ai':   seed=parseInt(r.r2d,10); break;
+      case 'ai3d': seed=parseInt(r.r3d,10)%10; break;
+      case 'ait':  seed=parseInt(r.as+r.kop,10)%10; break;
+      case 'aid':  seed=parseInt(r.as,10); break;
+      case 'cb':   seed=parseInt(r.r2d,10); break;
+      case 'a':    seed=parseInt(r.as,10);  break;
+      case 'c':    seed=parseInt(r.kop,10); break;
+      case 'k':    seed=parseInt(r.kep,10); break;
+      case 'e':    seed=parseInt(r.ekor,10);break;
+      case 'ke':   seed=(parseInt(r.kep,10)*10+parseInt(r.ekor,10)); break;
+      case 'j':    seed=(parseInt(r.kep,10)+parseInt(r.ekor,10))%10; break;
+      case 'jt':   seed=(parseInt(r.as,10)+parseInt(r.kop,10))%10;   break;
+      case 'jd':   seed=parseInt(r.as,10);  break;
+      case 's':    seed=shioNum(r.dt);       break;
+      case 'st':   seed=(shioNum(r.dt)+5)%12; break;
+      case 'sd':   seed=(shioNum(r.dt)+8)%12; break;
+      default:     seed=parseInt(r.r2d,10);
+    }
+    if(isNaN(seed)) seed=0;
+    const nkep=next?parseInt(next.kep,10):-1;
+    const nek =next?parseInt(next.ekor,10):-1;
+    const nj  =next?(parseInt(next.kep,10)+parseInt(next.ekor,10))%10:-1;
+    const cols=[];
+    for(let d=0;d<=9;d++){
+      const val=(seed+d)%10;
+      let cls='hasil';
+      if(val===nkep) cls='hasilk';
+      else if(val===nek) cls='hasile';
+      cols.push({val,cls});
+    }
+    return{no:n-i,data:r.r2d+':',cols};
+  });
+}
+function shioNum(dt){
+  if(!dt) return 0;
+  return((dt.getFullYear()-4)%12+12)%12;
+}
+function renderRekTab(rows,rumus,tbodyId,theadId,tfootId,pagId,page){
+  const labels=['A','B','C','D','E','F','G','H','I','J'];
+  const hdr=`<th class="heading">no</th><th class="heading">Data</th>${labels.map(l=>`<th class="heading">${l}</th>`).join('')}<th class="heading"></th>`;
+  $(theadId).innerHTML=hdr;
+  $(tfootId).innerHTML=hdr.replace(/heading/g,'bawah');
+  const rpp=15,total=rows.length,pages=Math.ceil(total/rpp)||1;
+  const pg=Math.min(page,pages);
+  $(pagId).textContent=`${pg}/${pages} (${total})`;
+  if(!rows.length){$(tbodyId).innerHTML=`<tr><td colspan="13" style="padding:14px;color:var(--muted)">Tidak ada data.</td></tr>`;return pg;}
+  const sl=rows.slice((pg-1)*rpp,pg*rpp);
+  $(tbodyId).innerHTML=sl.map(row=>`<tr>
+    <td class="heading">${row.no}</td><td>&nbsp;${row.data}</td>
+    ${row.cols.map(c=>`<td class="${c.cls}">${c.val}</td>`).join('')}
+    <td style="font-size:.62rem;color:var(--muted)">${$('rk-rumus')?$('rk-rumus').value:rumus}</td>
+  </tr>`).join('');
+  return pg;
+}
+
+// ═══════════════════════════════════════════════════
+// SCANNER PRO – Algorithm
+// ═══════════════════════════════════════════════════
+function getScVal(row,fcol){
+  switch(fcol){
+    case 'ai': case 'cb': return parseInt(row.r2d,10);
+    case 'aid': return parseInt(row.as+row.kop,10)%10;
+    case 'a':  return parseInt(row.as,10);
+    case 'c':  return parseInt(row.kop,10);
+    case 'k':  return parseInt(row.kep,10);
+    case 'e':  return parseInt(row.ekor,10);
+    case 'j':  return(parseInt(row.kep,10)+parseInt(row.ekor,10))%10;
+    default:   return parseInt(row.r2d,10);
+  }
+}
+function scanRumus(data, fcol, digitN, limitBrs, maxPatah, maxRumus, filterHari){
+  let rows = data;
+  if(filterHari) rows=data.filter(r=>r.hari===filterHari);
+  if(!rows.length) return[];
+  const results=[];
+  const numDigits=parseInt(digitN)||2;
+  const limit=parseInt(limitBrs)||20;
+  const maxZ=parseInt(maxPatah)||0;
+  const maxR=parseInt(maxRumus)||5;
+
+  // For each formula: starting at position i, look back `limit` rows
+  // find if val at position i repeats within limit rows with consecutive pattern
+  const seen=new Set();
+  for(let start=0;start<rows.length-limit;start++){
+    const baseVal=getScVal(rows[start],fcol);
+    if(isNaN(baseVal)) continue;
+    // Build rotation sequence
+    const pred=[];
+    for(let d=0;d<numDigits;d++) pred.push((baseVal+d)%10);
+    const key=pred.join('');
+    if(seen.has(key)) continue;
+    seen.add(key);
+    // Check how long this pattern holds
+    let len=0, patah=0;
+    for(let j=start+1;j<Math.min(start+limit,rows.length);j++){
+      const v=getScVal(rows[j],fcol)%10;
+      if(pred.includes(v)) len++;
+      else { patah++; if(patah>maxZ) break; }
+    }
+    if(len>=2){
+      results.push({
+        rms:results.length+1,
+        formula:`${fcol.toUpperCase()}→[${pred.join(',')}]`,
+        pred,pjg:len,patah,start
+      });
+    }
+    if(results.length>=maxR) break;
+  }
+  return results.sort((a,b)=>b.pjg-a.pjg);
+}
+
+// ═══════════════════════════════════════════════════
+// KOLEKSI
+// ═══════════════════════════════════════════════════
+function renderKoleksi(){
+  const list=$('sk-koleksi-list');
+  $('sk-saved-count').textContent=G.koleksi.length+' rumus';
+  if(!G.koleksi.length){list.innerHTML='<div style="padding:12px;text-align:center;font-size:.72rem;color:var(--muted)">Belum ada koleksi. Scan lalu simpan rumus.</div>';return;}
+  list.innerHTML=G.koleksi.map((k,i)=>`
+    <div class="koleksi-item">
+      <span style="font-weight:800;font-size:.75rem">#${i+1}</span>
+      <span class="sc-formula">${k.formula}</span>
+      <div class="sc-pred">${k.pred.map(d=>`<span>${d}</span>`).join('')}</div>
+      <span style="font-size:.65rem;color:var(--muted)">PJG:${k.pjg}</span>
+      <button class="btn btn-danger btn-sm" onclick="removeKoleksi(${i})"><i class="bi bi-trash"></i></button>
+    </div>
+  `).join('');
+}
+window.removeKoleksi=function(i){
+  G.koleksi.splice(i,1);
+  localStorage.setItem('koleksi',JSON.stringify(G.koleksi));
+  renderKoleksi();
+};
+renderKoleksi();
+
+// ═══════════════════════════════════════════════════
+// EXPORT CSV
+// ═══════════════════════════════════════════════════
+function exportCSV(){
+  if(!G.data.length){logMsg('Tidak ada data','warn');return;}
+  const h='No,Tanggal,Hari,Pasaran,Periode,4D,3D,2D,As,Kop,Kepala,Ekor';
+  const rows=G.data.map(r=>`${r.no},"${r.dateStr}","${r.day}","${r.pasaran}","${r.periode}","${r.result}","${r.r3d}","${r.r2d}","${r.as}","${r.kop}","${r.kep}","${r.ekor}"`);
+  const blob=new Blob([h+'\n'+rows.join('\n')],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download=`paito_${G.activePas}_${Date.now()}.csv`;a.click();
+  logMsg(`💾 Export ${G.data.length} baris`,'ok');
+}
+
+// ═══════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════
+function setTopStatus(state,msg){
+  $('top-status').textContent=msg;
+  setDot('dot',state);
+}
+function setDot(id,state){
+  $(id).className='sdot'+(state?' '+state:'');
+}
+function setDStatus(msg){$('d-status').textContent=msg;}
+function setProgress(id,pct){$(id).style.width=pct+'%';}
+function logMsg(msg,type=''){
+  const b=$('log-box');
+  const ts=new Date().toLocaleTimeString('id-ID');
+  b.innerHTML+=`<div class="log-${type}">[${ts}] ${msg}</div>`;
+  b.scrollTop=b.scrollHeight;
+}
+
+// ═══════════════════════════════════════════════════
+// EVENT LISTENERS
+// ═══════════════════════════════════════════════════
+
+// ─── BOT AI ───
+$('btn-analisa').addEventListener('click',()=>{
+  if(!G.data.length){$('b-info').innerHTML='⚠ Data kosong. Pergi ke tab <strong>📊 Data Pengeluaran</strong> → tekan <strong>⟳ FETCH DATA</strong>.';return;}
+  const mode=$('b-mode').value;
+  const jarak=parseInt($('b-jarak').value)||5;
+  const jump=parseInt($('b-jump').value)||0;
+  const tipe=$('b-tipe').value;
+  const key=parseInt($('b-key').value)||2;
+  const pats=analyzeBot(G.data,mode,jarak,jump,tipe,key);
+  renderBotResults(pats,mode);
+});
+$('b-pasaran').addEventListener('change',function(){
+  G.activePas=this.value;
+  doFetch(this.value);
+});
+$('btn-dl').addEventListener('click',()=>{
+  const mode=$('b-mode').value;
+  const h='No,Tanggal,Pasaran,'+mode.toUpperCase();
+  const rows=G.data.slice(0,50).map((r,i)=>`${i+1},${r.dateStr},${r.pasaran},${getVal(r,mode)}`);
+  const blob=new Blob([h+'\n'+rows.join('\n')],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download=`bot_${mode}_${Date.now()}.csv`;a.click();
+});
+
+// ─── KUMPULAN RUMUS ───
+$('btn-rk-load').addEventListener('click',()=>{
+  if(!G.data.length){$('rk-msg').textContent='⚠ Fetch data dulu!';return;}
+  G.rkRows=computeRekap(G.data,$('rk-rumus').value,parseInt($('rk-num').value)||15);
+  G.rkPage=1;
+  renderRekTab(G.rkRows,$('rk-rumus').value,'rk-tbody','rk-thead','rk-tfoot','rk-pag',G.rkPage);
+  $('rk-msg').textContent=`✅ ${G.rkRows.length} baris`;
+  $('rk-output').value=G.rkRows.map(r=>r.data+' '+r.cols.map(c=>c.val).join('')).join('\n').slice(0,500);
+});
+$('rk-prev').addEventListener('click',()=>{if(G.rkPage>1){G.rkPage--;renderRekTab(G.rkRows,$('rk-rumus').value,'rk-tbody','rk-thead','rk-tfoot','rk-pag',G.rkPage);}});
+$('rk-next').addEventListener('click',()=>{G.rkPage++;renderRekTab(G.rkRows,$('rk-rumus').value,'rk-tbody','rk-thead','rk-tfoot','rk-pag',G.rkPage);});
+$('btn-rk-reset').addEventListener('click',()=>{
+  $('rk-num').value=15;$('rk-rumus').value='ai';$('rk-mode').value='manual';
+  $('rk-tbody').innerHTML='<tr><td colspan="13" style="padding:16px;color:var(--muted)">Reset. Tekan ▶ LOAD.</td></tr>';
+  $('rk-output').value='';$('rk-msg').textContent='Reset.';
+});
+$('btn-rk-save').addEventListener('click',()=>{
+  const txt=$('rk-output').value;if(!txt)return;
+  const blob=new Blob([txt],{type:'text/plain'});const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download=`rekap_${$('rk-rumus').value}.txt`;a.click();
+});
+$('btn-rk-copy').addEventListener('click',()=>{
+  navigator.clipboard.writeText($('rk-output').value).then(()=>{
+    $('rk-copy-msg').textContent='✅ Disalin!';setTimeout(()=>$('rk-copy-msg').textContent='',2000);
+  });
+});
+
+// ─── SCANNER PRO ───
+$('btn-scan').addEventListener('click',async()=>{
+  if(!G.data.length){
+    $('sk-result-body').innerHTML='<tr><td colspan="5" style="padding:14px;text-align:center;color:var(--muted)">⚠ Fetch data dulu dari tab Data Pengeluaran!</td></tr>';
+    return;
+  }
+  const fcol=$('sk-fcol').value;
+  const digit=$('sk-digit').value;
+  const limit=$('sk-limit').value;
+  const patah=$('sk-patah').value;
+  const maxr=$('sk-maxrumus').value;
+  const hari=$('sk-day').value;
+
+  // Show progress
+  $('sk-progress-container').style.display='block';
+  let pct=0;
+  const progInt=setInterval(()=>{pct=Math.min(pct+8,90);$('sk-progress-bar').style.width=pct+'%';},80);
+
+  // If different pasaran
+  const pas=$('sk-market').value;
+  if(pas!==G.activePas){G.activePas=pas;await doFetch(pas);}
+
+  const results=scanRumus(G.data,fcol,digit,limit,patah,maxr,hari);
+
+  clearInterval(progInt);
+  $('sk-progress-bar').style.width='100%';
+  $('sk-progress-text').textContent=`SELESAI – ${results.length} rumus ditemukan`;
+  setTimeout(()=>{$('sk-progress-container').style.display='none';$('sk-progress-bar').style.width='0';},1500);
+
+  if(!results.length){
+    $('sk-result-body').innerHTML='<tr><td colspan="5" style="padding:14px;text-align:center;color:var(--muted)">Tidak ada rumus ditemukan. Coba kurangi Maks Patah atau ubah Target.</td></tr>';
+    return;
+  }
+  $('sk-result-body').innerHTML=results.map((r,i)=>`<tr>
+    <td style="font-weight:800;color:var(--accent2)">#${i+1}</td>
+    <td class="sc-formula">${r.formula}</td>
+    <td><div class="sc-pred">${r.pred.map(d=>`<span>${d}</span>`).join('')}</div></td>
+    <td style="font-weight:800;color:var(--green)">${r.pjg}</td>
+    <td><button class="tar-btn btn-sm" data-ri="${i}" style="font-size:.62rem">📌 Simpan</button></td>
+  </tr>`).join('');
+  $('sk-result-body').querySelectorAll('[data-ri]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const r=results[parseInt(btn.dataset.ri)];
+      G.koleksi.push(r);
+      localStorage.setItem('koleksi',JSON.stringify(G.koleksi));
+      renderKoleksi();
+      btn.textContent='✅ Tersimpan';
+    });
+  });
+});
+$('btn-sk-clear').addEventListener('click',()=>{
+  $('sk-result-body').innerHTML='<tr><td colspan="5" style="padding:14px;text-align:center;color:var(--muted)">Tabel dikosongkan.</td></tr>';
+});
+$('btn-sk-koleksi').addEventListener('click',()=>{
+  const rows=$('sk-result-body').querySelectorAll('tr[data-ri]');
+  if(!rows.length) return;
+  document.querySelectorAll('.tab')[2].click();
+});
+
+// ─── RUMUS OTOMATIS ───
+$('btn-ro-proses').addEventListener('click',()=>{
+  if(!G.data.length){$('ro-msg').textContent='⚠ Fetch data dulu!';return;}
+  let data=G.data;
+  const hari=$('ro-hari').value;
+  if(hari) data=data.filter(r=>r.hari===hari);
+  G.roRows=computeRekap(data,$('ro-rumus').value,parseInt($('ro-baris').value)||15);
+  G.roPage=1;
+  renderRekTab(G.roRows,$('ro-rumus').value,'ro-tbody','ro-thead','ro-tfoot','ro-pag',G.roPage);
+  $('ro-output').value=G.roRows.map(r=>r.data+' '+r.cols.map(c=>c.val).join('')).join('\n').slice(0,500);
+  $('ro-msg').textContent=`✅ ${G.roRows.length} baris`;
+});
+$('ro-prev').addEventListener('click',()=>{if(G.roPage>1){G.roPage--;renderRekTab(G.roRows,$('ro-rumus').value,'ro-tbody','ro-thead','ro-tfoot','ro-pag',G.roPage);}});
+$('ro-next').addEventListener('click',()=>{G.roPage++;renderRekTab(G.roRows,$('ro-rumus').value,'ro-tbody','ro-thead','ro-tfoot','ro-pag',G.roPage);});
+$('btn-ro-load').addEventListener('click',()=>{
+  const kode=$('ro-kode').value.trim();
+  if(!kode){$('ro-msg').textContent='⚠ Paste kode dulu!';return;}
+  $('ro-output').value=kode;
+  $('ro-msg').textContent='✅ Kode dimuat';
+});
+$('btn-ro-reset').addEventListener('click',()=>{
+  $('ro-kode').value='';$('ro-baris').value=15;$('ro-rumus').value='ai';$('ro-hari').value='';
+  $('ro-tbody').innerHTML='<tr><td colspan="13" style="padding:16px;color:var(--muted)">Reset. Tekan ⚡ PROSES.</td></tr>';
+  $('ro-output').value='';$('ro-msg').textContent='Reset.';
+});
+$('btn-ro-save').addEventListener('click',()=>{
+  const txt=$('ro-output').value;if(!txt)return;
+  const blob=new Blob([txt],{type:'text/plain'});const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download=`rumus_otomatis_${Date.now()}.txt`;a.click();
+});
+$('btn-ro-copy').addEventListener('click',()=>{
+  navigator.clipboard.writeText($('ro-output').value).then(()=>{
+    $('ro-copy-msg').textContent='✅ Disalin!';setTimeout(()=>$('ro-copy-msg').textContent='',2000);
+  });
+});
+
+// ─── PAITO WARNA ───
+document.querySelectorAll('.ptab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.ptab').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+    G.activePas=t.dataset.p;
+    doFetch(t.dataset.p);
+  });
+});
+$('pt-cari').addEventListener('input',applyPtFilter);
+$('pt-rpp').addEventListener('change',applyPtFilter);
+$('pt-prev').addEventListener('click',()=>{G.ptPage--;renderPtTable();});
+$('pt-next').addEventListener('click',()=>{G.ptPage++;renderPtTable();});
+$('pt-fetch').addEventListener('click',()=>doFetch(G.activePas));
+$('pt-csv').addEventListener('click',exportCSV);
+$('tgl-color').addEventListener('click',function(){G.colorOn=!G.colorOn;this.className='tgl'+(G.colorOn?' on':'');renderPtTable();});
+
+// ─── DATA PENGELUARAN ───
+$('btn-d-fetch').addEventListener('click',()=>{
+  G.activePas=$('d-pasaran').value||G.activePas;
+  doFetch(G.activePas, parseInt($('d-limit').value)||100);
+});
+$('btn-d-auto').addEventListener('click',()=>G.autoOn?stopAuto():startAuto());
+$('btn-d-stop').addEventListener('click',()=>{stopAuto();setTopStatus('','Dihentikan.');logMsg('■ Dihentikan','warn');});
+$('tgl-auto').addEventListener('click',()=>G.autoOn?stopAuto():startAuto());
+$('tgl-notif').addEventListener('click',function(){G.notifOn=!G.notifOn;this.className='tgl'+(G.notifOn?' on':'');});
+$('btn-parse').addEventListener('click',()=>{
+  const raw=$('paste-json').value.trim();
+  if(!raw){logMsg('Textarea kosong','warn');return;}
+  try{
+    const json=JSON.parse(raw);
+    const rows=extractRows(json);
+    if(!rows.length) throw new Error('Array data kosong');
+    G.data=rows.map((r,i)=>normalize(r,i,G.activePas));
+    $('d-total').textContent=G.data.length;
+    updatePtBanner();applyPtFilter();renderDataTable();
+    logMsg(`📥 Parse: ${G.data.length} baris`,'ok');
+  }catch(e){logMsg('❌ '+e.message,'err');}
+});
+$('btn-clear-log').addEventListener('click',()=>$('log-box').innerHTML='');
+$('btn-export').addEventListener('click',exportCSV);
+$('d-prev').addEventListener('click',()=>{G.dPage--;renderDataTable();});
+$('d-next').addEventListener('click',()=>{G.dPage++;renderDataTable();});
+$('d-pasaran').addEventListener('change',function(){G.activePas=this.value;});
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+logMsg('🚀 Angkanet Smart Paito Warna Engine siap.','ok');
+logMsg('💡 Pergi ke tab 📊 Data Pengeluaran → tekan ⟳ FETCH DATA untuk mulai.','info');
+logMsg('🔄 5 proxy chain: corsproxy → allorigins → thingproxy → cors-anywhere → codetabs','info');
+logMsg('🤖 Setelah data ada, semua tab Bot AI / Rumus / Scanner aktif.','info');
+
+// Auto-sync pasaran selects
+['rk-market','ro-market','d-pasaran'].forEach(id=>{
+  const el=$(id); if(el) el.value='hk';
+});
+$('b-pasaran').value='hk';
+$('sk-market').value='hk';
+</script>
+</body>
+</html>
