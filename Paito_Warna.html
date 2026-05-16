@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paito Warna – WONGBAGUS PREDICTION</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Barlow+Condensed:wght@400;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0d0f14;--surface:#13161e;--card:#191d28;--border:#252a38;--gold:#f5c842;--red:#e63946;--green:#2ecc71;--blue:#3a86ff;--text:#e8eaf0;--muted:#6b7592;--font-head:'Oswald',sans-serif;--font-body:'Barlow',sans-serif;--font-num:'Barlow Condensed',sans-serif}
+html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font-body)}
+#topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 14px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:99}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);animation:pulse 1.8s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+#logo{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--gold);letter-spacing:1px}
+#clock{margin-left:auto;font-family:var(--font-head);font-size:11px;color:var(--muted);text-align:right;line-height:1.5}
+#clock b{color:var(--gold)}
+.page-header{padding:16px 14px 12px;background:linear-gradient(180deg,rgba(245,200,66,.07) 0%,transparent 100%);border-bottom:1px solid var(--border)}
+.page-title{font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--gold);letter-spacing:1px}
+.page-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.controls{padding:10px 14px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--border)}
+.ctrl-row{display:flex;gap:8px}
+select{flex:1;background:var(--card);border:1px solid var(--border);color:var(--text);padding:9px 10px;border-radius:8px;font-family:var(--font-body);font-size:13px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7592' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+select:focus{outline:none;border-color:var(--gold)}
+.btn-row{display:flex;gap:6px;flex-wrap:wrap}
+.fbtn{padding:7px 14px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-family:var(--font-head);font-size:11px;letter-spacing:.5px;cursor:pointer;transition:all .15s}
+.fbtn.active{background:var(--gold);color:#000;border-color:var(--gold);font-weight:600}
+.fbtn:active{transform:scale(.95)}
+#status-bar{padding:8px 14px;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--border)}
+.sdot{width:6px;height:6px;border-radius:50%;background:var(--muted);flex-shrink:0}
+.sdot.ok{background:var(--green);box-shadow:0 0 6px var(--green)}
+.sdot.loading{background:var(--gold);animation:pulse 1s infinite}
+.sdot.err{background:var(--red)}
+#table-wrap{overflow-x:auto;padding-bottom:90px}
+table{width:100%;border-collapse:collapse;min-width:300px}
+thead th{background:var(--surface);padding:8px 4px;font-family:var(--font-head);font-size:10px;letter-spacing:1px;color:var(--muted);text-align:center;border-bottom:2px solid var(--border);position:sticky;top:49px}
+tbody tr{border-bottom:1px solid rgba(255,255,255,.035)}
+tbody tr:hover{background:rgba(255,255,255,.025)}
+td{padding:4px 3px;text-align:center;font-family:var(--font-num);font-size:13px;font-weight:600}
+td.dt{font-size:10px;font-weight:400;color:var(--muted);font-family:var(--font-body);white-space:nowrap;padding:4px 8px;text-align:left;min-width:56px}
+td.res{font-size:15px;letter-spacing:2px;color:var(--text);min-width:50px;font-weight:700}
+td.dg{width:30px}
+td.dg span{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:5px;font-size:14px;font-weight:700}
+.c0{background:#e63946;color:#fff}
+.c1{background:#f5c842;color:#000}
+.c2{background:#2ecc71;color:#000}
+.c3{background:#3a86ff;color:#fff}
+.c4{background:#ff6b6b;color:#fff}
+.c5{background:#48cae4;color:#000}
+.c6{background:#f77f00;color:#000}
+.c7{background:#7b2d8b;color:#fff}
+.c8{background:#1a936f;color:#fff}
+.c9{background:#6c757d;color:#fff}
+#empty{text-align:center;padding:50px 20px;font-family:var(--font-head);color:var(--muted)}
+#empty .ico{font-size:40px;margin-bottom:10px}
+#loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:50px 20px;gap:14px}
+.spin{width:34px;height:34px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#loading p{font-family:var(--font-head);font-size:11px;letter-spacing:1.5px;color:var(--muted)}
+#analisa{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:2px solid var(--gold);padding:8px 14px;z-index:50;display:none;gap:6px;flex-wrap:wrap;align-items:center}
+.an-item{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:5px 10px;font-family:var(--font-head);font-size:10px;letter-spacing:.5px;color:var(--muted)}
+.an-item b{color:var(--gold);font-size:15px;display:block;line-height:1}
+</style>
+</head>
+<body>
+<div id="topbar">
+  <div class="dot"></div>
+  <div id="logo">WONGBAGUS PREDICTION</div>
+  <div id="clock"><b id="ckt">--:--:--</b><br><span id="ckd">---</span></div>
+</div>
+<div class="page-header">
+  <div class="page-title">🎨 PAITO WARNA</div>
+  <div class="page-sub">Data keluaran live · Auto update setiap 4 jam</div>
+</div>
+<div class="controls">
+  <div class="ctrl-row">
+    <select id="sel-p" onchange="load()">
+      <option value="hkg">🌟 Hongkong Pools</option>
+      <option value="sgp">🌟 SGP | Singapore</option>
+      <option value="syd">Sydney Pools</option>
+      <option value="sdlt">Sydney Lotto</option>
+      <option value="hklt">Hongkong Lotto</option>
+      <option value="chn">China Pools</option>
+      <option value="jpn">Japan</option>
+      <option value="cmb2">Magnum Cambodia</option>
+      <option value="ncd">North Carolina Day</option>
+      <option value="twn">Taiwan</option>
+    </select>
+    <select id="sel-d" onchange="render()">
+      <option value="all">4D Lengkap</option>
+      <option value="as">AS saja</option>
+      <option value="cop">KOP saja</option>
+      <option value="kepala">KEPALA saja</option>
+      <option value="ekor">EKOR saja</option>
+    </select>
+  </div>
+  <div class="btn-row">
+    <button class="fbtn active" onclick="setN(20,this)">20</button>
+    <button class="fbtn" onclick="setN(30,this)">30</button>
+    <button class="fbtn" onclick="setN(50,this)">50</button>
+    <button class="fbtn" onclick="setN(999,this)">Semua</button>
+  </div>
+</div>
+<div id="status-bar"><div class="sdot loading" id="sd"></div><span id="st">Memuat...</span></div>
+<div id="table-wrap">
+  <div id="loading"><div class="spin"></div><p>MEMUAT DATA...</p></div>
+  <table id="tbl" style="display:none">
+    <thead><tr><th>TGL</th><th>HARI</th><th>RESULT</th><th>AS</th><th>KOP</th><th>KEP</th><th>EKR</th></tr></thead>
+    <tbody id="tb"></tbody>
+  </table>
+  <div id="empty" style="display:none"><div class="ico">📭</div>Data tidak tersedia.<br>Coba jalankan GitHub Actions.</div>
+</div>
+<div id="analisa">
+  <div class="an-item">AS<b id="an0">-</b></div>
+  <div class="an-item">KOP<b id="an1">-</b></div>
+  <div class="an-item">KEP<b id="an2">-</b></div>
+  <div class="an-item">EKR<b id="an3">-</b></div>
+  <div class="an-item" style="color:var(--text)">Terbanyak<br><span style="font-size:9px;color:var(--muted)">dari <span id="an-n">-</span> data</span></div>
+</div>
+
+<script>
+var data=[], n=20;
+var BASE='https://raw.githubusercontent.com/alifavif-cmd/WONGBAGUS-PREDICTION/main/data/';
+var C=['c0','c1','c2','c3','c4','c5','c6','c7','c8','c9'];
+function cc(d){return '<span class="'+C[parseInt(d)||0]+'">'+d+'</span>';}
+function ss(t,m){document.getElementById('sd').className='sdot '+t;document.getElementById('st').textContent=m;}
+function setN(v,b){n=v;document.querySelectorAll('.fbtn').forEach(function(x){x.classList.remove('active')});b.classList.add('active');render();}
+async function load(){
+  var key=document.getElementById('sel-p').value;
+  document.getElementById('loading').style.display='flex';
+  document.getElementById('tbl').style.display='none';
+  document.getElementById('empty').style.display='none';
+  document.getElementById('analisa').style.display='none';
+  ss('loading','Memuat '+key.toUpperCase()+'...');
+  try{
+    var r=await fetch(BASE+key+'.json?t='+Date.now());
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    var j=await r.json();
+    data=j.data||[];
+    if(!data.length)throw new Error('Data kosong');
+    var upd=(j.updatedAt||'').slice(0,16).replace('T',' ');
+    ss('ok',j.nama+' · '+data.length+' data · '+upd);
+    render();
+  }catch(e){
+    data=[];ss('err','Gagal: '+e.message);
+    document.getElementById('loading').style.display='none';
+    document.getElementById('empty').style.display='block';
+  }
+}
+function render(){
+  if(!data.length)return;
+  var dg=document.getElementById('sel-d').value;
+  var rows=data.slice(0,n);
+  var html='';
+  rows.forEach(function(r){
+    var r4=r.result4||'----';
+    var as=r.as||r4[0]||'-';
+    var kp=r.cop||r4[1]||'-';
+    var ke=r.kepala||r4[2]||'-';
+    var ek=r.ekor||r4[3]||'-';
+    html+='<tr>';
+    html+='<td class="dt">'+(r.tanggal||'').slice(5)+'</td>';
+    html+='<td class="dt" style="min-width:30px">'+(r.hari||'').slice(0,3)+'</td>';
+    html+='<td class="res">'+r4+'</td>';
+    html+='<td class="dg">'+cc(as)+'</td>';
+    html+='<td class="dg">'+cc(kp)+'</td>';
+    html+='<td class="dg">'+cc(ke)+'</td>';
+    html+='<td class="dg">'+cc(ek)+'</td>';
+    html+='</tr>';
+  });
+  document.getElementById('tb').innerHTML=html;
+  document.getElementById('loading').style.display='none';
+  document.getElementById('tbl').style.display='table';
+  // Analisa
+  var cnt=[{},{},{},{}];
+  rows.forEach(function(r){
+    var r4=r.result4||'0000';
+    [r.as||r4[0],r.cop||r4[1],r.kepala||r4[2],r.ekor||r4[3]].forEach(function(d,i){
+      cnt[i][d]=(cnt[i][d]||0)+1;
+    });
+  });
+  ['an0','an1','an2','an3'].forEach(function(id,i){
+    var top=Object.entries(cnt[i]).sort(function(a,b){return b[1]-a[1];})[0];
+    document.getElementById(id).textContent=top?top[0]:'-';
+  });
+  document.getElementById('an-n').textContent=rows.length;
+  document.getElementById('analisa').style.display='flex';
+}
+(function tick(){
+  var now=new Date();
+  var days=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
+  var months=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nov','Des'];
+  document.getElementById('ckt').textContent=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0')+':'+String(now.getSeconds()).padStart(2,'0');
+  document.getElementById('ckd').textContent=days[now.getDay()]+', '+now.getDate()+' '+months[now.getMonth()];
+  setTimeout(tick,1000);
+})();
+load();
+</script>
+</body>
+</html>
