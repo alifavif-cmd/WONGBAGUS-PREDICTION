@@ -1,0 +1,549 @@
+{
+  "key": "chn",
+  "nama": "Chinapools",
+  "status": "ok",
+  "total": 60,
+  "data": [
+    {
+      "tanggal": "9689",
+      "hari": "9219",
+      "result4": "6086",
+      "as": "6",
+      "cop": "0",
+      "kepala": "8",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "7079",
+      "hari": "8242",
+      "result4": "0745",
+      "as": "0",
+      "cop": "7",
+      "kepala": "4",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "4283",
+      "hari": "6681",
+      "result4": "3249",
+      "as": "3",
+      "cop": "2",
+      "kepala": "4",
+      "ekor": "9"
+    },
+    {
+      "tanggal": "8983",
+      "hari": "4077",
+      "result4": "3971",
+      "as": "3",
+      "cop": "9",
+      "kepala": "7",
+      "ekor": "1"
+    },
+    {
+      "tanggal": "6098",
+      "hari": "4912",
+      "result4": "9241",
+      "as": "9",
+      "cop": "2",
+      "kepala": "4",
+      "ekor": "1"
+    },
+    {
+      "tanggal": "4877",
+      "hari": "6885",
+      "result4": "9736",
+      "as": "9",
+      "cop": "7",
+      "kepala": "3",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "5360",
+      "hari": "2375",
+      "result4": "0926",
+      "as": "0",
+      "cop": "9",
+      "kepala": "2",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "4758",
+      "hari": "1440",
+      "result4": "1162",
+      "as": "1",
+      "cop": "1",
+      "kepala": "6",
+      "ekor": "2"
+    },
+    {
+      "tanggal": "8550",
+      "hari": "7336",
+      "result4": "6759",
+      "as": "6",
+      "cop": "7",
+      "kepala": "5",
+      "ekor": "9"
+    },
+    {
+      "tanggal": "4776",
+      "hari": "9548",
+      "result4": "5615",
+      "as": "5",
+      "cop": "6",
+      "kepala": "1",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "3498",
+      "hari": "2543",
+      "result4": "3485",
+      "as": "3",
+      "cop": "4",
+      "kepala": "8",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "2768",
+      "hari": "0474",
+      "result4": "8388",
+      "as": "8",
+      "cop": "3",
+      "kepala": "8",
+      "ekor": "8"
+    },
+    {
+      "tanggal": "8355",
+      "hari": "9117",
+      "result4": "3830",
+      "as": "3",
+      "cop": "8",
+      "kepala": "3",
+      "ekor": "0"
+    },
+    {
+      "tanggal": "4120",
+      "hari": "2907",
+      "result4": "5781",
+      "as": "5",
+      "cop": "7",
+      "kepala": "8",
+      "ekor": "1"
+    },
+    {
+      "tanggal": "4659",
+      "hari": "9806",
+      "result4": "6851",
+      "as": "6",
+      "cop": "8",
+      "kepala": "5",
+      "ekor": "1"
+    },
+    {
+      "tanggal": "5380",
+      "hari": "3023",
+      "result4": "2814",
+      "as": "2",
+      "cop": "8",
+      "kepala": "1",
+      "ekor": "4"
+    },
+    {
+      "tanggal": "0284",
+      "hari": "3438",
+      "result4": "4461",
+      "as": "4",
+      "cop": "4",
+      "kepala": "6",
+      "ekor": "1"
+    },
+    {
+      "tanggal": "6734",
+      "hari": "3501",
+      "result4": "3173",
+      "as": "3",
+      "cop": "1",
+      "kepala": "7",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "6989",
+      "hari": "0517",
+      "result4": "2241",
+      "as": "2",
+      "cop": "2",
+      "kepala": "4",
+      "ekor": "1"
+    },
+    {
+      "tanggal": "7300",
+      "hari": "3518",
+      "result4": "7165",
+      "as": "7",
+      "cop": "1",
+      "kepala": "6",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "6358",
+      "hari": "4454",
+      "result4": "1897",
+      "as": "1",
+      "cop": "8",
+      "kepala": "9",
+      "ekor": "7"
+    },
+    {
+      "tanggal": "9190",
+      "hari": "7624",
+      "result4": "5719",
+      "as": "5",
+      "cop": "7",
+      "kepala": "1",
+      "ekor": "9"
+    },
+    {
+      "tanggal": "4899",
+      "hari": "7408",
+      "result4": "6449",
+      "as": "6",
+      "cop": "4",
+      "kepala": "4",
+      "ekor": "9"
+    },
+    {
+      "tanggal": "0281",
+      "hari": "7508",
+      "result4": "5073",
+      "as": "5",
+      "cop": "0",
+      "kepala": "7",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "6584",
+      "hari": "0424",
+      "result4": "0837",
+      "as": "0",
+      "cop": "8",
+      "kepala": "3",
+      "ekor": "7"
+    },
+    {
+      "tanggal": "2026",
+      "hari": "6390",
+      "result4": "3282",
+      "as": "3",
+      "cop": "2",
+      "kepala": "8",
+      "ekor": "2"
+    },
+    {
+      "tanggal": "4105",
+      "hari": "8951",
+      "result4": "5817",
+      "as": "5",
+      "cop": "8",
+      "kepala": "1",
+      "ekor": "7"
+    },
+    {
+      "tanggal": "7576",
+      "hari": "1607",
+      "result4": "6822",
+      "as": "6",
+      "cop": "8",
+      "kepala": "2",
+      "ekor": "2"
+    },
+    {
+      "tanggal": "5276",
+      "hari": "6904",
+      "result4": "1746",
+      "as": "1",
+      "cop": "7",
+      "kepala": "4",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "7811",
+      "hari": "2639",
+      "result4": "4203",
+      "as": "4",
+      "cop": "2",
+      "kepala": "0",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "5110",
+      "hari": "3864",
+      "result4": "6604",
+      "as": "6",
+      "cop": "6",
+      "kepala": "0",
+      "ekor": "4"
+    },
+    {
+      "tanggal": "4364",
+      "hari": "5889",
+      "result4": "3125",
+      "as": "3",
+      "cop": "1",
+      "kepala": "2",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "4572",
+      "hari": "9576",
+      "result4": "7166",
+      "as": "7",
+      "cop": "1",
+      "kepala": "6",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "3931",
+      "hari": "9921",
+      "result4": "1213",
+      "as": "1",
+      "cop": "2",
+      "kepala": "1",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "8379",
+      "hari": "7051",
+      "result4": "3950",
+      "as": "3",
+      "cop": "9",
+      "kepala": "5",
+      "ekor": "0"
+    },
+    {
+      "tanggal": "2419",
+      "hari": "1552",
+      "result4": "6427",
+      "as": "6",
+      "cop": "4",
+      "kepala": "2",
+      "ekor": "7"
+    },
+    {
+      "tanggal": "0906",
+      "hari": "5889",
+      "result4": "3981",
+      "as": "3",
+      "cop": "9",
+      "kepala": "8",
+      "ekor": "1"
+    },
+    {
+      "tanggal": "2096",
+      "hari": "3326",
+      "result4": "8709",
+      "as": "8",
+      "cop": "7",
+      "kepala": "0",
+      "ekor": "9"
+    },
+    {
+      "tanggal": "6371",
+      "hari": "5936",
+      "result4": "3103",
+      "as": "3",
+      "cop": "1",
+      "kepala": "0",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "3174",
+      "hari": "9425",
+      "result4": "2679",
+      "as": "2",
+      "cop": "6",
+      "kepala": "7",
+      "ekor": "9"
+    },
+    {
+      "tanggal": "7826",
+      "hari": "8654",
+      "result4": "9006",
+      "as": "9",
+      "cop": "0",
+      "kepala": "0",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "6324",
+      "hari": "7866",
+      "result4": "1600",
+      "as": "1",
+      "cop": "6",
+      "kepala": "0",
+      "ekor": "0"
+    },
+    {
+      "tanggal": "8612",
+      "hari": "3591",
+      "result4": "3583",
+      "as": "3",
+      "cop": "5",
+      "kepala": "8",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "2618",
+      "hari": "3806",
+      "result4": "2756",
+      "as": "2",
+      "cop": "7",
+      "kepala": "5",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "8991",
+      "hari": "4866",
+      "result4": "1249",
+      "as": "1",
+      "cop": "2",
+      "kepala": "4",
+      "ekor": "9"
+    },
+    {
+      "tanggal": "2503",
+      "hari": "2661",
+      "result4": "5286",
+      "as": "5",
+      "cop": "2",
+      "kepala": "8",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "4259",
+      "hari": "8762",
+      "result4": "3871",
+      "as": "3",
+      "cop": "8",
+      "kepala": "7",
+      "ekor": "1"
+    },
+    {
+      "tanggal": "8825",
+      "hari": "6164",
+      "result4": "6506",
+      "as": "6",
+      "cop": "5",
+      "kepala": "0",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "0778",
+      "hari": "5630",
+      "result4": "6960",
+      "as": "6",
+      "cop": "9",
+      "kepala": "6",
+      "ekor": "0"
+    },
+    {
+      "tanggal": "8994",
+      "hari": "5902",
+      "result4": "4472",
+      "as": "4",
+      "cop": "4",
+      "kepala": "7",
+      "ekor": "2"
+    },
+    {
+      "tanggal": "5071",
+      "hari": "9402",
+      "result4": "9084",
+      "as": "9",
+      "cop": "0",
+      "kepala": "8",
+      "ekor": "4"
+    },
+    {
+      "tanggal": "7386",
+      "hari": "4814",
+      "result4": "0845",
+      "as": "0",
+      "cop": "8",
+      "kepala": "4",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "7762",
+      "hari": "6371",
+      "result4": "6764",
+      "as": "6",
+      "cop": "7",
+      "kepala": "6",
+      "ekor": "4"
+    },
+    {
+      "tanggal": "3090",
+      "hari": "6088",
+      "result4": "7642",
+      "as": "7",
+      "cop": "6",
+      "kepala": "4",
+      "ekor": "2"
+    },
+    {
+      "tanggal": "1173",
+      "hari": "0311",
+      "result4": "5040",
+      "as": "5",
+      "cop": "0",
+      "kepala": "4",
+      "ekor": "0"
+    },
+    {
+      "tanggal": "0698",
+      "hari": "0481",
+      "result4": "8237",
+      "as": "8",
+      "cop": "2",
+      "kepala": "3",
+      "ekor": "7"
+    },
+    {
+      "tanggal": "9808",
+      "hari": "4159",
+      "result4": "9320",
+      "as": "9",
+      "cop": "3",
+      "kepala": "2",
+      "ekor": "0"
+    },
+    {
+      "tanggal": "0887",
+      "hari": "9742",
+      "result4": "7232",
+      "as": "7",
+      "cop": "2",
+      "kepala": "3",
+      "ekor": "2"
+    },
+    {
+      "tanggal": "6020",
+      "hari": "3415",
+      "result4": "3317",
+      "as": "3",
+      "cop": "3",
+      "kepala": "1",
+      "ekor": "7"
+    },
+    {
+      "tanggal": "1544",
+      "hari": "6515",
+      "result4": "4757",
+      "as": "4",
+      "cop": "7",
+      "kepala": "5",
+      "ekor": "7"
+    }
+  ],
+  "updatedAt": "2026-05-16T13:05:03.823Z"
+}

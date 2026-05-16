@@ -1,0 +1,279 @@
+{
+  "key": "sgp",
+  "nama": "SGP | Singapore",
+  "status": "ok",
+  "total": 30,
+  "data": [
+    {
+      "tanggal": "2026-05-16",
+      "hari": "Sabtu",
+      "result4": "2735",
+      "as": "2",
+      "cop": "7",
+      "kepala": "3",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "2026-05-14",
+      "hari": "Kamis",
+      "result4": "9876",
+      "as": "9",
+      "cop": "8",
+      "kepala": "7",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "2026-05-13",
+      "hari": "Rabu",
+      "result4": "0672",
+      "as": "0",
+      "cop": "6",
+      "kepala": "7",
+      "ekor": "2"
+    },
+    {
+      "tanggal": "2026-05-11",
+      "hari": "Senin",
+      "result4": "5066",
+      "as": "5",
+      "cop": "0",
+      "kepala": "6",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "2026-05-10",
+      "hari": "Minggu",
+      "result4": "7517",
+      "as": "7",
+      "cop": "5",
+      "kepala": "1",
+      "ekor": "7"
+    },
+    {
+      "tanggal": "2026-05-09",
+      "hari": "Sabtu",
+      "result4": "5479",
+      "as": "5",
+      "cop": "4",
+      "kepala": "7",
+      "ekor": "9"
+    },
+    {
+      "tanggal": "2026-05-07",
+      "hari": "Kamis",
+      "result4": "1653",
+      "as": "1",
+      "cop": "6",
+      "kepala": "5",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "2026-05-06",
+      "hari": "Rabu",
+      "result4": "3361",
+      "as": "3",
+      "cop": "3",
+      "kepala": "6",
+      "ekor": "1"
+    },
+    {
+      "tanggal": "2026-05-04",
+      "hari": "Senin",
+      "result4": "7672",
+      "as": "7",
+      "cop": "6",
+      "kepala": "7",
+      "ekor": "2"
+    },
+    {
+      "tanggal": "2026-05-03",
+      "hari": "Minggu",
+      "result4": "6303",
+      "as": "6",
+      "cop": "3",
+      "kepala": "0",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "2026-05-02",
+      "hari": "Sabtu",
+      "result4": "2300",
+      "as": "2",
+      "cop": "3",
+      "kepala": "0",
+      "ekor": "0"
+    },
+    {
+      "tanggal": "2026-04-30",
+      "hari": "Kamis",
+      "result4": "3614",
+      "as": "3",
+      "cop": "6",
+      "kepala": "1",
+      "ekor": "4"
+    },
+    {
+      "tanggal": "2026-04-29",
+      "hari": "Rabu",
+      "result4": "1167",
+      "as": "1",
+      "cop": "1",
+      "kepala": "6",
+      "ekor": "7"
+    },
+    {
+      "tanggal": "2026-04-27",
+      "hari": "Senin",
+      "result4": "4020",
+      "as": "4",
+      "cop": "0",
+      "kepala": "2",
+      "ekor": "0"
+    },
+    {
+      "tanggal": "2026-04-26",
+      "hari": "Minggu",
+      "result4": "7937",
+      "as": "7",
+      "cop": "9",
+      "kepala": "3",
+      "ekor": "7"
+    },
+    {
+      "tanggal": "2026-04-25",
+      "hari": "Sabtu",
+      "result4": "9950",
+      "as": "9",
+      "cop": "9",
+      "kepala": "5",
+      "ekor": "0"
+    },
+    {
+      "tanggal": "2026-04-23",
+      "hari": "Kamis",
+      "result4": "0053",
+      "as": "0",
+      "cop": "0",
+      "kepala": "5",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "2026-04-22",
+      "hari": "Rabu",
+      "result4": "2791",
+      "as": "2",
+      "cop": "7",
+      "kepala": "9",
+      "ekor": "1"
+    },
+    {
+      "tanggal": "2026-04-20",
+      "hari": "Senin",
+      "result4": "4620",
+      "as": "4",
+      "cop": "6",
+      "kepala": "2",
+      "ekor": "0"
+    },
+    {
+      "tanggal": "2026-04-19",
+      "hari": "Minggu",
+      "result4": "9815",
+      "as": "9",
+      "cop": "8",
+      "kepala": "1",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "2026-04-18",
+      "hari": "Sabtu",
+      "result4": "8953",
+      "as": "8",
+      "cop": "9",
+      "kepala": "5",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "2026-04-16",
+      "hari": "Kamis",
+      "result4": "9344",
+      "as": "9",
+      "cop": "3",
+      "kepala": "4",
+      "ekor": "4"
+    },
+    {
+      "tanggal": "2026-04-15",
+      "hari": "Rabu",
+      "result4": "3873",
+      "as": "3",
+      "cop": "8",
+      "kepala": "7",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "2026-04-13",
+      "hari": "Senin",
+      "result4": "8145",
+      "as": "8",
+      "cop": "1",
+      "kepala": "4",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "2026-04-12",
+      "hari": "Minggu",
+      "result4": "2218",
+      "as": "2",
+      "cop": "2",
+      "kepala": "1",
+      "ekor": "8"
+    },
+    {
+      "tanggal": "2026-04-11",
+      "hari": "Sabtu",
+      "result4": "8025",
+      "as": "8",
+      "cop": "0",
+      "kepala": "2",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "2026-04-09",
+      "hari": "Kamis",
+      "result4": "8395",
+      "as": "8",
+      "cop": "3",
+      "kepala": "9",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "2026-04-08",
+      "hari": "Rabu",
+      "result4": "7195",
+      "as": "7",
+      "cop": "1",
+      "kepala": "9",
+      "ekor": "5"
+    },
+    {
+      "tanggal": "2026-04-06",
+      "hari": "Senin",
+      "result4": "2916",
+      "as": "2",
+      "cop": "9",
+      "kepala": "1",
+      "ekor": "6"
+    },
+    {
+      "tanggal": "2026-04-05",
+      "hari": "Minggu",
+      "result4": "8866",
+      "as": "8",
+      "cop": "8",
+      "kepala": "6",
+      "ekor": "6"
+    }
+  ],
+  "updatedAt": "2026-05-16T13:04:56.192Z"
+}

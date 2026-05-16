@@ -1,0 +1,87 @@
+{
+  "updatedAt": "2026-05-16T13:05:10.218Z",
+  "ok": 10,
+  "total": 10,
+  "pasaran": [
+    {
+      "key": "sgp",
+      "nama": "SGP | Singapore",
+      "status": "ok",
+      "total": 30,
+      "lastResult": "2735",
+      "updatedAt": "2026-05-16T13:04:56.192Z"
+    },
+    {
+      "key": "hkg",
+      "nama": "Hongkong Pools",
+      "status": "ok",
+      "total": 30,
+      "lastResult": "7591",
+      "updatedAt": "2026-05-16T13:04:57.865Z"
+    },
+    {
+      "key": "syd",
+      "nama": "Sydneypools",
+      "status": "ok",
+      "total": 30,
+      "lastResult": "9682",
+      "updatedAt": "2026-05-16T13:04:59.354Z"
+    },
+    {
+      "key": "sdlt",
+      "nama": "Sydney Lotto",
+      "status": "ok",
+      "total": 60,
+      "lastResult": "6145",
+      "updatedAt": "2026-05-16T13:05:00.559Z"
+    },
+    {
+      "key": "hklt",
+      "nama": "Hongkong Lotto",
+      "status": "ok",
+      "total": 60,
+      "lastResult": "2992",
+      "updatedAt": "2026-05-16T13:05:01.774Z"
+    },
+    {
+      "key": "chn",
+      "nama": "Chinapools",
+      "status": "ok",
+      "total": 60,
+      "lastResult": "6086",
+      "updatedAt": "2026-05-16T13:05:03.823Z"
+    },
+    {
+      "key": "jpn",
+      "nama": "Japan",
+      "status": "ok",
+      "total": 30,
+      "lastResult": "2735",
+      "updatedAt": "2026-05-16T13:05:05.160Z"
+    },
+    {
+      "key": "cmb2",
+      "nama": "Magnum Cambodia",
+      "status": "ok",
+      "total": 30,
+      "lastResult": "9682",
+      "updatedAt": "2026-05-16T13:05:06.838Z"
+    },
+    {
+      "key": "ncd",
+      "nama": "North Carolina Day",
+      "status": "ok",
+      "total": 30,
+      "lastResult": "2735",
+      "updatedAt": "2026-05-16T13:05:08.264Z"
+    },
+    {
+      "key": "twn",
+      "nama": "Taiwan",
+      "status": "ok",
+      "total": 30,
+      "lastResult": "9682",
+      "updatedAt": "2026-05-16T13:05:09.416Z"
+    }
+  ]
+}
