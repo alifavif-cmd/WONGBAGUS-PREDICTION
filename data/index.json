@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-15T17:21:38.002Z",
+  "updatedAt": "2026-05-16T11:33:15.575Z",
   "ok": 10,
   "total": 10,
   "pasaran": [
@@ -8,8 +8,8 @@
       "nama": "SGP | Singapore",
       "status": "ok",
       "total": 30,
-      "lastResult": "9876",
-      "updatedAt": "2026-05-15T17:21:22.035Z"
+      "lastResult": "2735",
+      "updatedAt": "2026-05-16T11:33:01.089Z"
     },
     {
       "key": "hkg",
@@ -17,15 +17,15 @@
       "status": "ok",
       "total": 30,
       "lastResult": "7591",
-      "updatedAt": "2026-05-15T17:21:24.335Z"
+      "updatedAt": "2026-05-16T11:33:02.992Z"
     },
     {
       "key": "syd",
       "nama": "Sydneypools",
       "status": "ok",
       "total": 30,
-      "lastResult": "5166",
-      "updatedAt": "2026-05-15T17:21:25.770Z"
+      "lastResult": "9682",
+      "updatedAt": "2026-05-16T11:33:04.444Z"
     },
     {
       "key": "sdlt",
@@ -33,7 +33,7 @@
       "status": "ok",
       "total": 60,
       "lastResult": "6145",
-      "updatedAt": "2026-05-15T17:21:27.097Z"
+      "updatedAt": "2026-05-16T11:33:05.763Z"
     },
     {
       "key": "hklt",
@@ -41,7 +41,7 @@
       "status": "ok",
       "total": 60,
       "lastResult": "2992",
-      "updatedAt": "2026-05-15T17:21:28.495Z"
+      "updatedAt": "2026-05-16T11:33:07.116Z"
     },
     {
       "key": "chn",
@@ -49,39 +49,39 @@
       "status": "ok",
       "total": 60,
       "lastResult": "6086",
-      "updatedAt": "2026-05-15T17:21:30.942Z"
+      "updatedAt": "2026-05-16T11:33:09.495Z"
     },
     {
       "key": "jpn",
       "nama": "Japan",
       "status": "ok",
       "total": 30,
-      "lastResult": "9876",
-      "updatedAt": "2026-05-15T17:21:32.875Z"
+      "lastResult": "2735",
+      "updatedAt": "2026-05-16T11:33:10.925Z"
     },
     {
       "key": "cmb2",
       "nama": "Magnum Cambodia",
       "status": "ok",
       "total": 30,
-      "lastResult": "5166",
-      "updatedAt": "2026-05-15T17:21:34.799Z"
+      "lastResult": "9682",
+      "updatedAt": "2026-05-16T11:33:12.341Z"
     },
     {
       "key": "ncd",
       "nama": "North Carolina Day",
       "status": "ok",
       "total": 30,
-      "lastResult": "9876",
-      "updatedAt": "2026-05-15T17:21:35.998Z"
+      "lastResult": "2735",
+      "updatedAt": "2026-05-16T11:33:13.565Z"
     },
     {
       "key": "twn",
       "nama": "Taiwan",
       "status": "ok",
       "total": 30,
-      "lastResult": "5166",
-      "updatedAt": "2026-05-15T17:21:37.199Z"
+      "lastResult": "9682",
+      "updatedAt": "2026-05-16T11:33:14.773Z"
     }
   ]
 }
