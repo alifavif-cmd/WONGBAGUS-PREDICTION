@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WONGBAGUS PREDICTION</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0c10;--surface:#111318;--border:#1e2230;--gold:#f5c842;--muted:#5a6580}
+body{background:var(--bg);color:#dde3f0;font-family:'Barlow',sans-serif;min-height:100vh}
+
+#topbar{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:10px 14px;display:flex;align-items:center;gap:10px;
+  position:sticky;top:0;z-index:99;
+}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);animation:pulse 1.8s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+#logo{font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:1px}
+#clock{margin-left:auto;font-family:'Oswald',monospace;font-size:12px;color:var(--muted);letter-spacing:1px;text-align:right;line-height:1.4}
+#clock b{color:var(--gold)}
+
+.section-title{
+  font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;
+  color:var(--muted);text-transform:uppercase;padding:18px 14px 8px;
+}
+
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px 12px}
+
+.menu-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:16px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;
+  cursor:pointer;text-decoration:none;color:inherit;
+  transition:transform .15s,border-color .15s,box-shadow .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.menu-card:active{transform:scale(.96)}
+.menu-card .icon{font-size:32px}
+.menu-card .name{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;text-align:center}
+.menu-card .desc{font-size:10px;color:var(--muted);text-align:center;line-height:1.4}
+
+.menu-card[data-c="0"]{border-color:#f5c84240}
+.menu-card[data-c="0"]:active,.menu-card[data-c="0"]:hover{border-color:#f5c842;box-shadow:0 0 16px #f5c84230}
+.menu-card[data-c="1"]{border-color:#e03c3c40}
+.menu-card[data-c="1"]:active,.menu-card[data-c="1"]:hover{border-color:#e03c3c;box-shadow:0 0 16px #e03c3c30}
+.menu-card[data-c="2"]{border-color:#3a7bff40}
+.menu-card[data-c="2"]:active,.menu-card[data-c="2"]:hover{border-color:#3a7bff;box-shadow:0 0 16px #3a7bff30}
+.menu-card[data-c="3"]{border-color:#2ecc7140}
+.menu-card[data-c="3"]:active,.menu-card[data-c="3"]:hover{border-color:#2ecc71;box-shadow:0 0 16px #2ecc7130}
+.menu-card[data-c="4"]{border-color:#f9731640}
+.menu-card[data-c="4"]:active,.menu-card[data-c="4"]:hover{border-color:#f97316;box-shadow:0 0 16px #f9731630}
+.menu-card[data-c="5"]{border-color:#c77dff40}
+.menu-card[data-c="5"]:active,.menu-card[data-c="5"]:hover{border-color:#c77dff;box-shadow:0 0 16px #c77dff30}
+
+.badge{
+  display:inline-block;background:#f5c84220;color:var(--gold);
+  border-radius:20px;font-size:10px;padding:2px 8px;
+  font-family:'Oswald',sans-serif;letter-spacing:.5px;margin-top:2px;
+}
+
+.footer{
+  text-align:center;padding:20px 14px 30px;
+  font-size:11px;color:var(--muted);line-height:1.8;
+}
+.footer b{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="dot"></div>
+  <div id="logo">WONGBAGUS PREDICTION</div>
+  <div id="clock"><b id="ck-t">--:--:--</b><br><span id="ck-d">---</span></div>
+</div>
+
+<div class="section-title">⚡ Menu Utama</div>
+
+<div class="menu-grid">
+  <a class="menu-card" data-c="0" href="Rumus_Otomatis.html" target="_blank">
+    <div class="icon">⚡</div>
+    <div class="name">Rumus Otomatis</div>
+    <div class="desc">Rumus AI otomatis setiap hari</div>
+    <span class="badge">LIVE</span>
+  </a>
+
+  <a class="menu-card" data-c="1" href="Rumus_Lengkap.html" target="_blank">
+    <div class="icon">📐</div>
+    <div class="name">Rumus Lengkap</div>
+    <div class="desc">Bank rumus lengkap semua pasaran</div>
+    <span class="badge">UPDATE</span>
+  </a>
+
+  <a class="menu-card" data-c="2" href="Scanner_Rumus.html" target="_blank">
+    <div class="icon">🔍</div>
+    <div class="name">Scanner Rumus</div>
+    <div class="desc">Scan algoritma terbaik v2.0</div>
+    <span class="badge">PRO</span>
+  </a>
+
+  <a class="menu-card" data-c="3" href="Paito_Warna.html" target="_blank">
+    <div class="icon">🎨</div>
+    <div class="name">Paito Warna</div>
+    <div class="desc">Paito warna lengkap semua pasaran</div>
+    <span class="badge">LIVE</span>
+  </a>
+
+  <a class="menu-card" data-c="4" href="Smart_Paito.html" target="_blank">
+    <div class="icon">🧠</div>
+    <div class="name">Smart Paito</div>
+    <div class="desc">Paito pintar dengan AI sync</div>
+    <span class="badge">AI</span>
+  </a>
+
+  <a class="menu-card" data-c="5" href="DataTogel.html" target="_blank">
+    <div class="icon">📊</div>
+    <div class="name">Data Togel</div>
+    <div class="desc">Data pengeluaran semua pasaran</div>
+    <span class="badge">LIVE</span>
+  </a>
+</div>
+
+<div class="footer">
+  <b>WONGBAGUS PREDICTION</b><br>
+  Data live & selalu update otomatis<br>
+  Klik menu → terbuka di halaman baru
+</div>
+
+<script>
+(function tick(){
+  var now=new Date();
+  var days=['Min','Sen','Sel','Rab','Kam','Jum','Sab'];
+  var months=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nov','Des'];
+  document.getElementById('ck-t').textContent=
+    String(now.getHours()).padStart(2,'0')+':'+
+    String(now.getMinutes()).padStart(2,'0')+':'+
+    String(now.getSeconds()).padStart(2,'0');
+  document.getElementById('ck-d').textContent=
+    days[now.getDay()]+', '+now.getDate()+' '+months[now.getMonth()]+' '+now.getFullYear();
+  setTimeout(tick,1000);
+})();
+</script>
+</body>
+</html>
