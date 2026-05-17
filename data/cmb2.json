@@ -5,6 +5,15 @@
   "total": 30,
   "data": [
     {
+      "tanggal": "2026-05-17",
+      "hari": "Minggu",
+      "result4": "6789",
+      "as": "6",
+      "cop": "7",
+      "kepala": "8",
+      "ekor": "9"
+    },
+    {
       "tanggal": "2026-05-16",
       "hari": "Sabtu",
       "result4": "9682",
@@ -12,6 +21,15 @@
       "cop": "6",
       "kepala": "8",
       "ekor": "2"
+    },
+    {
+      "tanggal": "2026-05-16",
+      "hari": "Sabtu",
+      "result4": "6789",
+      "as": "6",
+      "cop": "7",
+      "kepala": "8",
+      "ekor": "9"
     },
     {
       "tanggal": "2026-05-15",
@@ -255,25 +273,7 @@
       "cop": "5",
       "kepala": "0",
       "ekor": "2"
-    },
-    {
-      "tanggal": "2026-04-18",
-      "hari": "Sabtu",
-      "result4": "6032",
-      "as": "6",
-      "cop": "0",
-      "kepala": "3",
-      "ekor": "2"
-    },
-    {
-      "tanggal": "2026-04-17",
-      "hari": "Jumat",
-      "result4": "2892",
-      "as": "2",
-      "cop": "8",
-      "kepala": "9",
-      "ekor": "2"
     }
   ],
-  "updatedAt": "2026-05-17T06:40:35.271Z"
+  "updatedAt": "2026-05-17T09:29:13.598Z"
 }
