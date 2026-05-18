@@ -32,24 +32,6 @@
       "ekor": "2"
     },
     {
-      "tanggal": "2026-05-16",
-      "hari": "Sabtu",
-      "result4": "6789",
-      "as": "6",
-      "cop": "7",
-      "kepala": "8",
-      "ekor": "9"
-    },
-    {
-      "tanggal": "2026-05-16",
-      "hari": "Sabtu",
-      "result4": "8424",
-      "as": "8",
-      "cop": "4",
-      "kepala": "2",
-      "ekor": "4"
-    },
-    {
       "tanggal": "2026-05-15",
       "hari": "Jumat",
       "result4": "5166",
@@ -273,7 +255,25 @@
       "cop": "7",
       "kepala": "7",
       "ekor": "0"
+    },
+    {
+      "tanggal": "2026-04-20",
+      "hari": "Senin",
+      "result4": "7513",
+      "as": "7",
+      "cop": "5",
+      "kepala": "1",
+      "ekor": "3"
+    },
+    {
+      "tanggal": "2026-04-19",
+      "hari": "Minggu",
+      "result4": "1502",
+      "as": "1",
+      "cop": "5",
+      "kepala": "0",
+      "ekor": "2"
     }
   ],
-  "updatedAt": "2026-05-18T11:41:37.455Z"
+  "updatedAt": "2026-05-18T14:58:04.241Z"
 }
