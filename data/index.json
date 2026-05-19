@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-19T02:36:00.965Z",
+  "updatedAt": "2026-05-19T07:39:25.376Z",
   "ok": 10,
   "total": 10,
   "pasaran": [
@@ -9,7 +9,7 @@
       "status": "ok",
       "total": 30,
       "lastResult": "0826",
-      "updatedAt": "2026-05-19T02:35:47.469Z"
+      "updatedAt": "2026-05-19T07:39:10.940Z"
     },
     {
       "key": "hkg",
@@ -17,15 +17,15 @@
       "status": "ok",
       "total": 30,
       "lastResult": "9123",
-      "updatedAt": "2026-05-19T02:35:49.236Z"
+      "updatedAt": "2026-05-19T07:39:12.864Z"
     },
     {
       "key": "syd",
       "nama": "Sydneypools",
       "status": "ok",
       "total": 30,
-      "lastResult": "8424",
-      "updatedAt": "2026-05-19T02:35:50.574Z"
+      "lastResult": "9869",
+      "updatedAt": "2026-05-19T07:39:14.301Z"
     },
     {
       "key": "sdlt",
@@ -33,7 +33,7 @@
       "status": "ok",
       "total": 60,
       "lastResult": "6145",
-      "updatedAt": "2026-05-19T02:35:51.818Z"
+      "updatedAt": "2026-05-19T07:39:15.620Z"
     },
     {
       "key": "hklt",
@@ -41,7 +41,7 @@
       "status": "ok",
       "total": 60,
       "lastResult": "2992",
-      "updatedAt": "2026-05-19T02:35:53.060Z"
+      "updatedAt": "2026-05-19T07:39:16.958Z"
     },
     {
       "key": "chn",
@@ -49,7 +49,7 @@
       "status": "ok",
       "total": 60,
       "lastResult": "6086",
-      "updatedAt": "2026-05-19T02:35:55.187Z"
+      "updatedAt": "2026-05-19T07:39:19.321Z"
     },
     {
       "key": "jpn",
@@ -57,15 +57,15 @@
       "status": "ok",
       "total": 30,
       "lastResult": "0826",
-      "updatedAt": "2026-05-19T02:35:56.510Z"
+      "updatedAt": "2026-05-19T07:39:20.752Z"
     },
     {
       "key": "cmb2",
       "nama": "Magnum Cambodia",
       "status": "ok",
       "total": 30,
-      "lastResult": "8424",
-      "updatedAt": "2026-05-19T02:35:57.837Z"
+      "lastResult": "9869",
+      "updatedAt": "2026-05-19T07:39:22.181Z"
     },
     {
       "key": "ncd",
@@ -73,15 +73,15 @@
       "status": "ok",
       "total": 30,
       "lastResult": "0826",
-      "updatedAt": "2026-05-19T02:35:58.969Z"
+      "updatedAt": "2026-05-19T07:39:23.385Z"
     },
     {
       "key": "twn",
       "nama": "Taiwan",
       "status": "ok",
       "total": 30,
-      "lastResult": "8424",
-      "updatedAt": "2026-05-19T02:36:00.163Z"
+      "lastResult": "9869",
+      "updatedAt": "2026-05-19T07:39:24.574Z"
     }
   ]
 }
