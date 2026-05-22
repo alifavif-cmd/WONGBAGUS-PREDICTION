@@ -5,6 +5,15 @@
   "total": 30,
   "data": [
     {
+      "tanggal": "2026-05-22",
+      "hari": "Jumat",
+      "result4": "5767",
+      "as": "5",
+      "cop": "7",
+      "kepala": "6",
+      "ekor": "7"
+    },
+    {
       "tanggal": "2026-05-21",
       "hari": "Kamis",
       "result4": "4915",
@@ -264,16 +273,7 @@
       "cop": "3",
       "kepala": "3",
       "ekor": "0"
-    },
-    {
-      "tanggal": "2026-04-23",
-      "hari": "Kamis",
-      "result4": "9803",
-      "as": "9",
-      "cop": "8",
-      "kepala": "0",
-      "ekor": "3"
     }
   ],
-  "updatedAt": "2026-05-22T14:23:25.173Z"
+  "updatedAt": "2026-05-22T17:46:14.749Z"
 }
