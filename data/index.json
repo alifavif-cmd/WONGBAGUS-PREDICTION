@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-01T17:22:32.488Z",
+  "updatedAt": "2026-06-01T22:31:13.779Z",
   "ok": 10,
   "total": 10,
   "pasaran": [
@@ -9,7 +9,7 @@
       "status": "ok",
       "total": 30,
       "lastResult": "5273",
-      "updatedAt": "2026-06-01T17:22:18.937Z"
+      "updatedAt": "2026-06-01T22:30:59.380Z"
     },
     {
       "key": "hkg",
@@ -17,7 +17,7 @@
       "status": "ok",
       "total": 30,
       "lastResult": "0735",
-      "updatedAt": "2026-06-01T17:22:20.649Z"
+      "updatedAt": "2026-06-01T22:31:01.268Z"
     },
     {
       "key": "syd",
@@ -25,7 +25,7 @@
       "status": "ok",
       "total": 30,
       "lastResult": "1050",
-      "updatedAt": "2026-06-01T17:22:22.017Z"
+      "updatedAt": "2026-06-01T22:31:02.700Z"
     },
     {
       "key": "sdlt",
@@ -33,7 +33,7 @@
       "status": "ok",
       "total": 60,
       "lastResult": "6145",
-      "updatedAt": "2026-06-01T17:22:23.266Z"
+      "updatedAt": "2026-06-01T22:31:04.031Z"
     },
     {
       "key": "hklt",
@@ -41,7 +41,7 @@
       "status": "ok",
       "total": 60,
       "lastResult": "2992",
-      "updatedAt": "2026-06-01T17:22:24.491Z"
+      "updatedAt": "2026-06-01T22:31:05.351Z"
     },
     {
       "key": "chn",
@@ -49,7 +49,7 @@
       "status": "ok",
       "total": 60,
       "lastResult": "6086",
-      "updatedAt": "2026-06-01T17:22:26.566Z"
+      "updatedAt": "2026-06-01T22:31:07.804Z"
     },
     {
       "key": "jpn",
@@ -57,7 +57,7 @@
       "status": "ok",
       "total": 30,
       "lastResult": "5273",
-      "updatedAt": "2026-06-01T17:22:27.936Z"
+      "updatedAt": "2026-06-01T22:31:09.230Z"
     },
     {
       "key": "cmb2",
@@ -65,7 +65,7 @@
       "status": "ok",
       "total": 30,
       "lastResult": "1050",
-      "updatedAt": "2026-06-01T17:22:29.274Z"
+      "updatedAt": "2026-06-01T22:31:10.638Z"
     },
     {
       "key": "ncd",
@@ -73,7 +73,7 @@
       "status": "ok",
       "total": 30,
       "lastResult": "5273",
-      "updatedAt": "2026-06-01T17:22:30.437Z"
+      "updatedAt": "2026-06-01T22:31:11.805Z"
     },
     {
       "key": "twn",
@@ -81,7 +81,7 @@
       "status": "ok",
       "total": 30,
       "lastResult": "1050",
-      "updatedAt": "2026-06-01T17:22:31.685Z"
+      "updatedAt": "2026-06-01T22:31:12.977Z"
     }
   ]
 }
